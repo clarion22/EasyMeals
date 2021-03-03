@@ -4,12 +4,13 @@ import { signUp } from '../../store/session';
 import {useDispatch} from 'react-redux'
 
 
-const SignUpForm = ({authenticated, setAuthenticated}) => {
+const SignUpForm = ({setOpen}) => {
   const dispatch = useDispatch()
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const onSignUp = async (e) => {
@@ -17,7 +18,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     if (password === repeatPassword) {
       const user = await dispatch(signUp(username, email, password));
       if (!user.errors) {
-        setAuthenticated(true);
+        setOpen(false)
+        return <Redirect to="/" />;
       }
     }
   };
@@ -30,6 +32,10 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setEmail(e.target.value);
   };
 
+  const updateName = (e) => {
+    setName(e.target.value);
+  };
+
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
@@ -38,9 +44,6 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setRepeatPassword(e.target.value);
   };
 
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <form onSubmit={onSignUp}>
@@ -60,6 +63,15 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           name="email"
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>Name</label>
+        <input
+          type="text"
+          name="emnameail"
+          onChange={updateName}
+          value={name}
         ></input>
       </div>
       <div>

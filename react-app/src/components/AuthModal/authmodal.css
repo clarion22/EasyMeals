@@ -1,0 +1,19 @@
+.modal_btns {
+  display: flex;
+}
+
+.modal_btns > button {
+  flex-grow: 1;
+  border: none;
+  padding: 10px 5px;
+  background-color: #f5f5f5
+}
+
+.active {
+  background-color: #c5c1c1 !important;
+}
+
+
+.modal_btns > button:focus {
+ outline: none;
+}

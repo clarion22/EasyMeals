@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
 import { makeStyles } from '@material-ui/core/styles'
 import { FormHelperText } from '@material-ui/core';
 import AuthModal from './AuthModal'
 import './navbar.css'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
