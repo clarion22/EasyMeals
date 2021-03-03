@@ -12,6 +12,7 @@ const SignUpForm = ({setOpen}) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -20,6 +21,8 @@ const SignUpForm = ({setOpen}) => {
       if (!user.errors) {
         setOpen(false)
         return <Redirect to="/" />;
+      } else {
+        setErrors(user.errors);
       }
     }
   };
@@ -47,6 +50,11 @@ const SignUpForm = ({setOpen}) => {
 
   return (
     <form onSubmit={onSignUp}>
+      <div>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
+      </div>
       <div>
         <label>User Name</label>
         <input

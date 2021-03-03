@@ -6,6 +6,8 @@ import SignUpForm from '../auth/SignUpForm'
 import LogoutButton from '../auth/LogoutButton'
 import { signUp } from '../../store/session';
 import './authmodal.css'
+import {useSelector} from 'react-redux'
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -20,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function AuthModal() {
+  const sessionUser = useSelector(state => state.session.user);
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -47,8 +50,7 @@ function AuthModal() {
 
   return (
     <div>
-      <button type='button' onClick={handleOpen}>Log In</button>
-      <LogoutButton />
+      {sessionUser ? <LogoutButton /> : <button type='button' onClick={handleOpen}>Log In</button>}
       <Modal
       open={open}
       onClose={handleClose}

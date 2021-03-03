@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'pink',
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    minHeight: '70px'
   }
 }))
 
