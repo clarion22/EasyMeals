@@ -6,7 +6,7 @@ function CalorieForm() {
   const [inches, setInches] = useState(0);
   const [weight, setWeight] = useState(0);
   const [age, setAge] = useState(0);
-  const [activity, setActivity] = useState(0);
+  const [activity, setActivity] = useState(1);
 
   const activityLevels = [
     {value: 1, label: "Sedentary (little or no exercise)"},
@@ -28,16 +28,16 @@ function CalorieForm() {
         </div>
         <div>
           <label>Height</label>
-          <input type="number" placeholder="ft" onChange={(e) => setFeet(Number(e.target.value) * 12)}></input>
-          <input type="number" placeholder="in" onChange={(e) => setInches(Number(e.target.value))}></input>
+          <input type="number" min="0" placeholder="ft" onChange={(e) => e.target.value < 0 ? setFeet(0) : setFeet(Number(e.target.value) * 12)}></input>
+          <input type="number" min="0" placeholder="in" onChange={(e) => e.target.value < 0 ? setInches(0) : setInches(Number(e.target.value))}></input>
         </div>
         <div>
           <label>Weight</label>
-          <input type='number' placeholder='ibs' onChange={(e) => setWeight(Number(e.target.value))}></input>
+          <input type='number' min="0" placeholder='ibs' onChange={(e) => e.target.value < 0 ? setWeight(0) : setWeight(Number(e.target.value))}></input>
         </div>
         <div>
           <label>Age</label>
-          <input type='number' placeholder='years' onChange={(e) => setAge(Number(e.target.value))}></input>
+          <input type='number' min="0" placeholder='years' onChange={(e) => e.target.value < 0 ? setAge(0) : setAge(Number(e.target.value))}></input>
         </div>
         <select onChange={(e) => setActivity(e.target.value)}>
             {activityLevels.map(option => (
