@@ -8,6 +8,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Home from './components/Home'
 import { authenticate } from "./services/auth";
+import CssBaseline, { cssBaseline } from '@material-ui/core/CssBaseline'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <CssBaseline />
       <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
         <Route path="/login" exact={true}>

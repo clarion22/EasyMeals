@@ -1,9 +1,18 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: '500px',
+    backgroundColor: 'pink'
+  }
+}))
 
 export default function Home () {
+  const classes = useStyles()
   return (
-    <div>
-      <h1>This is working the home page!</h1>
+    <div className={classes.root}>
+
     </div>
   )
 }
