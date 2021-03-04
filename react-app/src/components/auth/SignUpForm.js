@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../services/auth';
+import { signUp } from '../../store/session';
+import {useDispatch} from 'react-redux'
 
-const SignUpForm = ({authenticated, setAuthenticated}) => {
+
+const SignUpForm = ({setOpen}) => {
+  const dispatch = useDispatch()
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(username, email, password);
+      const user = await dispatch(signUp(username, email, password));
       if (!user.errors) {
-        setAuthenticated(true);
+        setOpen(false)
+        return <Redirect to="/" />;
+      } else {
+        setErrors(user.errors);
       }
     }
   };
@@ -26,6 +35,10 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setEmail(e.target.value);
   };
 
+  const updateName = (e) => {
+    setName(e.target.value);
+  };
+
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
@@ -34,12 +47,14 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     setRepeatPassword(e.target.value);
   };
 
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <form onSubmit={onSignUp}>
+      <div>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
+      </div>
       <div>
         <label>User Name</label>
         <input
@@ -56,6 +71,15 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           name="email"
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>Name</label>
+        <input
+          type="text"
+          name="emnameail"
+          onChange={updateName}
+          value={name}
         ></input>
       </div>
       <div>

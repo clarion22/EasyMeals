@@ -1,0 +1,12 @@
+.dot {
+  height: 400px;
+  width: 400px;
+  background-color: turquoise;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+}
