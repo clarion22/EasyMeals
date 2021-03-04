@@ -28,12 +28,11 @@ function CalorieForm() {
       bmr = (4.536 * weight) + (15.88 * height) - (5 * age) - 161
     }
     totalCalories = bmr * multiplier[activity]
-    setTotalCal(totalCalories)
+    totalCalories > 0 ? setTotalCal(totalCalories) : setTotalCal(0)
   }
 
   const onSubmit = (e) => {
     e.preventDefault();
-    calorieEquation()
   }
 
   return (
@@ -66,9 +65,14 @@ function CalorieForm() {
             ))}
         </select>
         </div>
-        <button type='submit'>Calculate</button>
-      </form>
+        <button type='button' onClick={calorieEquation}>Calculate</button>
+        <div>
+        <label>Your own calories</label>
+        <input type='number' min="0" onChange={(e) => setTotalCal(Number(e.target.value))}></input>
+      </div>
       <div>Total Cal {totalCal}</div>
+      <button type='submit'>Submit</button>
+      </form>
     </div>
   )
 }
