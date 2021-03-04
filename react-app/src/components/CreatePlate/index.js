@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CalorieForm from '../CalorieForm';
+import PlateSelect from '../PlateSelect'
 import './createplate.css'
 
 function CreatePlate() {
@@ -59,6 +60,7 @@ function CreatePlate() {
           <Paper>
              <CalorieForm setRecommendation={setRecommendation} />
           </Paper>
+          <PlateSelect />
         </Grid>
       </Grid>
     </div>

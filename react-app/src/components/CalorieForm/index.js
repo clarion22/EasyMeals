@@ -71,16 +71,22 @@ function CalorieForm({setRecommendation}) {
         case "Male":
         if (age >= 9 && age <= 13) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
         } else if (age >=14 && age <= 18) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
         } else if  (age >= 10 && age <= 31) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
         } else if (age >= 35 && age <= 50){
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
         } else if (age >=51) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
         } else {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
         }
         default:
         console.log('did not reach cases')
