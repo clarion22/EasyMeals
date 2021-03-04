@@ -21,8 +21,8 @@ def upgrade():
     op.create_table('ingredients',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=150), nullable=False),
-    sa.Column('amount', sa.Integer(), nullable=False),
-    sa.Column('measurement_unit', sa.Integer(), nullable=False),
+    sa.Column('amount', sa.Float(), nullable=False),
+    sa.Column('measurement_unit', sa.String(50), nullable=False),
     sa.Column('recipe_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
     sa.PrimaryKeyConstraint('id')

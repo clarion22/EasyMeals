@@ -22,5 +22,5 @@ def seed_recipes():
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
 def undo_recipes():
-    db.session.execute('TRUNCATE recipes;')
+    db.session.execute('TRUNCATE recipes CASCADE;')
     db.session.commit()
