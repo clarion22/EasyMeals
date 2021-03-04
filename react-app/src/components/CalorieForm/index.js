@@ -7,6 +7,7 @@ function CalorieForm() {
   const [weight, setWeight] = useState(0);
   const [age, setAge] = useState(0);
   const [activity, setActivity] = useState(1);
+  const [totalCal, setTotalCal] = useState(0)
 
   const activityLevels = [
     {value: 1, label: "Sedentary (little or no exercise)"},
@@ -16,9 +17,28 @@ function CalorieForm() {
     {value: 5, label: "Extra active (very hard exercise/sports & a physical job"}
   ];
 
+  const calorieEquation = () => {
+    let totalCalories = 0;
+    let bmr = 0;
+    const height = inches + feet;
+    const multiplier = {1:1.2, 2:1.375, 3:1.55, 4:1.725, 5:1.9}
+    if (gender==="Male") {
+      bmr = (4.536 * weight) + (15.88 * height) - (5 * age) + 5
+    } else {
+      bmr = (4.536 * weight) + (15.88 * height) - (5 * age) - 161
+    }
+    totalCalories = bmr * multiplier[activity]
+    setTotalCal(totalCalories)
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    calorieEquation()
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={onSubmit}>
         <div>
           <label>I am</label>
           <label>Female</label>
@@ -39,12 +59,16 @@ function CalorieForm() {
           <label>Age</label>
           <input type='number' min="0" placeholder='years' onChange={(e) => e.target.value < 0 ? setAge(0) : setAge(Number(e.target.value))}></input>
         </div>
+        <div>
         <select onChange={(e) => setActivity(e.target.value)}>
             {activityLevels.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
         </select>
+        </div>
+        <button type='submit'>Calculate</button>
       </form>
+      <div>Total Cal {totalCal}</div>
     </div>
   )
 }
