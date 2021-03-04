@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function CalorieForm() {
+function CalorieForm({setRecommendation}) {
   const [gender, setGender] = useState('Female');
   const [feet, setFeet] = useState(0);
   const [inches, setInches] = useState(0);
@@ -17,6 +17,7 @@ function CalorieForm() {
     {value: 5, label: "Extra active (very hard exercise/sports & a physical job"}
   ];
 
+
   const calorieEquation = () => {
     let totalCalories = 0;
     let bmr = 0;
@@ -31,8 +32,67 @@ function CalorieForm() {
     totalCalories > 0 ? setTotalCal(totalCalories) : setTotalCal(0)
   }
 
+  const recommendedSetter = (foodObj={}, fruitAmt, fruitUnit, vegAmount, vegUnit, carbAmnt, carbUnit, dairyAmnt, dairyUnit, proteinAmnt, proteinUnit) => (
+    foodObj.fruit.amount = fruitAmt,
+    foodObj.fruit.unit = fruitUnit,
+    foodObj.vegetables.amount = vegAmount,
+    foodObj.vegetables.unit = vegUnit,
+    foodObj.carbs.amount = carbAmnt,
+    foodObj.carbs.unit = carbUnit,
+    foodObj.dairy.amount = dairyAmnt,
+    foodObj.dairy.unit = dairyUnit,
+    foodObj.protein.amount = proteinAmnt,
+    foodObj.protein.unit = proteinUnit
+)
+
+  const calculateRecommended = () => {
+    const recommended = {fruit: {amount: 0, unit: "cups"}, dairy: {amount: 0, unit: ""},  vegetables: {amount: 0, unit: ""}, carbs: {amount: 0, unit: ""}, protein: {amount: 0, unit: ""}}
+    switch(gender) {
+      case "Female":
+        if (age >= 9 && age <= 13) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
+        } else if (age >=14 && age <= 18) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
+        } else if  (age >= 10 && age <= 31) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
+        } else if (age >= 35 && age <= 50){
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
+        } else if (age >=51) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
+        } else {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          break;
+        }
+        case "Male":
+        if (age >= 9 && age <= 13) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+        } else if (age >=14 && age <= 18) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+        } else if  (age >= 10 && age <= 31) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+        } else if (age >= 35 && age <= 50){
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+        } else if (age >=51) {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+        } else {
+          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+        }
+        default:
+        console.log('did not reach cases')
+    }
+    console.log('in the right fun', recommended)
+    setRecommendation(recommended);
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log('reached on submit')
+    calculateRecommended()
   }
 
   return (
