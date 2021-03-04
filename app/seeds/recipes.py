@@ -10,6 +10,7 @@ def seed_recipes():
                     calories=248,
                     cook_time=140,
                     flavor_type="Greek",
+                    food_category="Chicken",
                     img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F6705859.jpg&w=596&h=596&c=sc&poi=face&q=85"
     )
 

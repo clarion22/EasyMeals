@@ -11,6 +11,7 @@ class Recipe(db.Model):
   calories = db.Column(db.Integer, nullable = False)
   cook_time = db.Column(db.Integer, nullable = False)
   flavor_type = db.Column(db.String(100), nullable = False)
+  food_category = db.Column(db.String(100), nullable =False)
   img_link = db.Column(db.Text, nullable = False)
 
   ingredient = db.relationship("Ingredient", back_populates="recipe")
@@ -26,5 +27,6 @@ class Recipe(db.Model):
       "calories": self.calories,
       "cook_time": self.cook_time,
       "flavor_type": self.flavor_type,
+      "food_category": self.food_category,
       "img_link": self.img_link,
     }

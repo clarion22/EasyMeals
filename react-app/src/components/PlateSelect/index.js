@@ -8,24 +8,20 @@ import Typography from '@material-ui/core/Typography';
 
 
 function PlateSelect() {
-  const recipes = useSelector(state => Object.values(state.recipe))
+  const recipes = useSelector(state => state.recipe.Protein)
   const [group, setGroup] = useState('Chicken')
-  const [flavor, setFlavor] = useState('Greek')
   const [toggle, setToggle] = useState(false)
   const handleGroup = (e) => {
     setGroup(e.target.value)
   }
 
-  const handleFlavor = (e) => {
-    setFlavor(e.target.value)
-  }
-
-  const showRecipes = () => {
-    setToggle(!toggle)
+  const showRecipes = (e) => {
+    e.preventDefault()
+    setToggle(true)
   }
 
 useEffect(() => {
-  if (recipes.length) console.log(recipes[0].title)
+  console.log(recipes)
 }, [recipes])
 
 
@@ -43,19 +39,13 @@ useEffect(() => {
                 <option value="Seafood">Seafood</option>
                 <option value="Tofu">Tofu</option>
               </select>
-              <label>Select a Cuisine Category</label>
-              <select onChange={handleFlavor}>
-                <option value="Greek">Greek</option>
-                <option value="Chinese">Chinese</option>
-                <option value="American">American</option>
-              </select>
               <button onClick={showRecipes}>Search</button>
-              <div>
-
+              {toggle && <div>
+              <div>{recipes.length ? <img style={{height: '80px'}} src={recipes[0].img_link} alt="recipe"/> : "Loading.."}</div>
               <div>{recipes.length ? recipes[0].title : "Loading..."}</div>
               <div>{recipes.length ? recipes[0].cook_time : "Loading..."}</div>
               <div>{recipes.length ? recipes[0].calories : "Loading..."}</div>
-            </div>
+            </div>}
             </form>
           </AccordionDetails>
       </Accordion>
