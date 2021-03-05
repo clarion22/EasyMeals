@@ -26,7 +26,6 @@ const recipeReducer = (state = { }, action) => {
       const foods = Object.values(action.payload)
       const proteins = foods.filter(food => food.food_group === "Protein")
       newState.protein = proteins;
-      newState = action.payload
       return newState;
     default:
       return state;
