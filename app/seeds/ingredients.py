@@ -2,6 +2,7 @@ from app.models import db, Ingredient, Recipe
 
 def seed_ingredients():
   recipe = Recipe.query.filter_by(title="Greek Chicken Skewers").first()
+  recipe2 = Recipe.query.filter_by(title="Jalapeno Steak").first()
   ingredients1 = Ingredient(name="lemon juice",
                             amount=1,
                             measurement_unit="tbsp",
@@ -62,6 +63,50 @@ def seed_ingredients():
                             measurement_unit="oz",
                             recipe_id=recipe.id
   )
+
+  bingredient1 = Ingredient(name="jalapeno peppers",
+                            amount=1,
+                            measurement_unit="",
+                            recipe_id=recipe2.id
+  )
+
+  bingredient2 = Ingredient(name="cloves garlic",
+                            amount=1,
+                            measurement_unit="",
+                            recipe_id=recipe2.id
+  )
+
+  bingredient3 = Ingredient(name="cracked black pepper",
+                            amount=0.25,
+                            measurement_unit="tsp",
+                            recipe_id=recipe2.id
+  )
+
+  bingredient4 = Ingredient(name="salt",
+                            amount=0.5,
+                            measurement_unit="tsp",
+                            recipe_id=recipe2.id
+  )
+
+  bingredient5 = Ingredient(name="lime juice",
+                            amount=2,
+                            measurement_unit="tsp",
+                            recipe_id=recipe2.id
+  )
+
+  bingredient6 = Ingredient(name="dried oregano",
+                            amount=0.5,
+                            measurement_unit="tsp",
+                            recipe_id=recipe2.id
+  )
+
+  bingredient7 = Ingredient(name="sirloin steak",
+                            amount=4,
+                            measurement_unit="oz",
+                            recipe_id=recipe2.id
+  )
+
+
   db.session.add(ingredients1)
   db.session.add(ingredients2)
   db.session.add(ingredients3)
@@ -74,6 +119,13 @@ def seed_ingredients():
   db.session.add(ingredients9)
   db.session.add(ingredients10)
   db.session.add(ingredients11)
+  db.session.add(bingredient1)
+  db.session.add(bingredient2)
+  db.session.add(bingredient3)
+  db.session.add(bingredient4)
+  db.session.add(bingredient5)
+  db.session.add(bingredient6)
+  db.session.add(bingredient7)
 
 
   db.session.commit()

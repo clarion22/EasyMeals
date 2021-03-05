@@ -8,4 +8,4 @@ food_routes = Blueprint('foods', __name__)
 @food_routes.route('/')
 def foods():
     recipes = Recipe.query.all()
-    return {recipe.food_group : recipe.to_dict() for recipe in recipes}
+    return {recipe.id : recipe.to_dict() for recipe in recipes}

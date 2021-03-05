@@ -23,9 +23,11 @@ const recipeReducer = (state = { }, action) => {
   let newState = { ...state };
   switch (action.type) {
     case LOAD_RECIPES:
-      newState = action.payload;
+      const foods = Object.values(action.payload)
+      const proteins = foods.filter(food => food.food_group === "Protein")
+      newState.protein = proteins;
+      newState = action.payload
       return newState;
-
     default:
       return state;
   }

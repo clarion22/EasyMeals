@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 function PlateSelect() {
-  const recipes = useSelector(state => state.recipe.Protein)
+  const recipes = useSelector(state => state.recipe)
   const [group, setGroup] = useState('Chicken')
   const [toggle, setToggle] = useState(false)
   const handleGroup = (e) => {
