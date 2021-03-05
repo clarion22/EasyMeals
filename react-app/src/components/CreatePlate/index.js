@@ -68,10 +68,11 @@ function CreatePlate() {
           <Paper>
              <CalorieForm setRecommendation={setRecommendation} />
           </Paper>
-          <PlateSelect />
-          <PlateSelect />
-          <PlateSelect />
-          <PlateSelect />
+          <PlateSelect foodType={"protein"}/>
+          <PlateSelect foodType={"fruit"}/>
+          <PlateSelect foodType={"dairy"}/>
+          <PlateSelect foodType={"vegetables"}/>
+          <PlateSelect foodType={"carbs"}/>
         </Grid>
       </Grid>
     </div>

@@ -7,11 +7,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 
 
-function PlateSelect() {
-  const recipes = useSelector(state => state.recipe.protein)
-  const [group, setGroup] = useState('Chicken')
+function PlateSelect({foodType}) {
+  const recipes = useSelector(state => state.recipe[foodType])
+  const [group, setGroup] = useState('')
   const [toggle, setToggle] = useState(false)
-  const [filteredFood, setFilteredFood] = useState([])
+  const [filteredFood, setFilteredFood] = useState(['All'])
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -19,9 +19,6 @@ function PlateSelect() {
       if (recipes) setFilteredFood(recipes.filter(recipe => recipe.food_category === group))
   }, [recipes, group]);
 
-  useEffect(() => {
-
-  }, [group])
 
   const handleGroup = (e) => {
     setGroup(e.target.value)
@@ -30,6 +27,10 @@ function PlateSelect() {
   const showRecipes = (e) => {
     e.preventDefault()
   }
+
+  useEffect(() => {
+    if (recipes) setGroup(recipes[0].food_category)
+  }, [loaded])
 
 
 if (!loaded) {
@@ -40,7 +41,7 @@ if (!loaded) {
     <div style={{marginTop: '20px'}}>
       <Accordion>
         <AccordionSummary  expandIcon={<ExpandMoreIcon />}>
-          <Typography>Protein</Typography>
+          <Typography>{foodType.toUpperCase()}</Typography>
         </AccordionSummary>
           <AccordionDetails>
             <form>
