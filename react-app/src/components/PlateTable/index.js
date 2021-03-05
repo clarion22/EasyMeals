@@ -20,46 +20,54 @@ function PlateSelect () {
   }
 
   const [foodChange, setFoodChange] = useState(false)
+  const [fullPlate, setFullPlate] = useState(false)
 
   useEffect(() => {
     setFoodChange(true)
-  }, [selectedProtein, selectedVegetables, selectedFruit, selectedDairy, selectedCarb])
+    if (selectedProtein && selectedVegetables && selectedFruit && selectedDairy && selectedCarb) setFullPlate(true)
+  }, [selectedProtein, selectedVegetables, selectedFruit, selectedDairy, selectedCarb, fullPlate])
 
 
+  const savePlate = (e) => {
+    e.preventDefault()
 
+  }
 
   const rows = [
-    createData('Protein', `${selectedProtein ?  selectedProtein.title : "no"}`, `${selectedProtein ?  selectedProtein.calories : "no"}`, 1),
-    createData('Carbs', `${selectedCarb ?  selectedCarb.title : "no"}`, `${selectedCarb ?  selectedCarb.calories : "no"}`, 4.3),
-    createData('Vegetables', `${selectedDairy ?  selectedDairy.title : "no"}`, `${selectedDairy ?  selectedDairy.calories : "no"}`, 6.0),
-    createData('Fruits', `${selectedFruit ?  selectedFruit.title : "no"}`, `${selectedFruit ?  selectedFruit.calories : "no"}`, 4.3),
-    createData('Dairy', `${selectedVegetables ?  selectedVegetables.title : "no"}`, `${selectedVegetables ?  selectedVegetables.calories : "no"}`, 3.9),
+    createData('Protein', `${selectedProtein ?  selectedProtein.title : ""}`, `${selectedProtein ?  selectedProtein.calories : ""}`, 1),
+    createData('Carbs', `${selectedCarb ?  selectedCarb.title : ""}`, `${selectedCarb ?  selectedCarb.calories : ""}`, 4.3),
+    createData('Vegetables', `${selectedDairy ?  selectedDairy.title : ""}`, `${selectedDairy ?  selectedDairy.calories : ""}`, 6.0),
+    createData('Fruits', `${selectedFruit ?  selectedFruit.title : ""}`, `${selectedFruit ?  selectedFruit.calories : ""}`, 4.3),
+    createData('Dairy', `${selectedVegetables ?  selectedVegetables.title : ""}`, `${selectedVegetables ?  selectedVegetables.calories : ""}`, 3.9),
   ];
   return (
-    <TableContainer component={Paper} style={{marginTop: '10px'}}>
-      <Table className="" aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Food Group</TableCell>
-            <TableCell align="right">Recipe</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Servings</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.recipe}</TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.servings}</TableCell>
+    <>
+      <TableContainer component={Paper} style={{marginTop: '10px'}}>
+        <Table className="" aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Food Group</TableCell>
+              <TableCell align="right">Recipe</TableCell>
+              <TableCell align="right">Calories</TableCell>
+              <TableCell align="right">Servings</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell align="right">{row.recipe}</TableCell>
+                <TableCell align="right">{row.calories}</TableCell>
+                <TableCell align="right">{row.servings}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {fullPlate ? <button onClick={savePlate}>Save your Plate</button> : ""}
+    </>
   )
 }
 
