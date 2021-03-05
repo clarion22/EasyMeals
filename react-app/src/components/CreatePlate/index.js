@@ -1,15 +1,24 @@
 import React, {useState, useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux';
+import * as recipeActions from '../../store/recipe';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CalorieForm from '../CalorieForm';
+import PlateSelect from '../PlateSelect'
 import './createplate.css'
 
 function CreatePlate() {
+  const dispatch = useDispatch()
+  const recipes = useSelector(state => state.recipes)
   const [recommendation, setRecommendation] = useState({fruit: {amount: 0, unit: "cups"}, dairy: {amount: 0, unit: ""},  vegetables: {amount: 0, unit: ""}, carbs: {amount: 0, unit: ""}, protein: {amount: 0, unit: ""}})
 
   useEffect(() => {
     console.log(recommendation)
   }, [recommendation])
+
+  useEffect(() => {
+     dispatch(recipeActions.getRecipes())
+  }, [dispatch])
   return (
     <div>
       <Grid container spacing={2}>
@@ -59,6 +68,10 @@ function CreatePlate() {
           <Paper>
              <CalorieForm setRecommendation={setRecommendation} />
           </Paper>
+          <PlateSelect />
+          <PlateSelect />
+          <PlateSelect />
+          <PlateSelect />
         </Grid>
       </Grid>
     </div>
