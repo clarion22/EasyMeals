@@ -29,7 +29,6 @@ function PlateSelect() {
 
   const showRecipes = (e) => {
     e.preventDefault()
-    setToggle(true)
   }
 
 
@@ -47,9 +46,9 @@ if (!loaded) {
             <form>
               <label>Select a Protein Category</label>
               <select onChange={handleGroup}>
-                <option value="Chicken">Chicken</option>
-                <option value="Beef">Beef</option>
-                <option value="Tofu">Tofu</option>
+                {recipes.map(recipe => (
+                  <option key={recipe.title} value={recipe.food_category}>{recipe.food_category}</option>
+                ))}
               </select>
               {filteredFood.map(recipe => (
                 <div key={recipe.id} style={{borderTop: 'solid 1px black'}}>

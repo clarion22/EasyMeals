@@ -70,6 +70,8 @@ function CreatePlate() {
           </Paper>
           <PlateSelect />
           <PlateSelect />
+          <PlateSelect />
+          <PlateSelect />
         </Grid>
       </Grid>
     </div>
