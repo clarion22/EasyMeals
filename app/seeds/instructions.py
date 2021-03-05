@@ -179,5 +179,5 @@ db.session.commit()
 
 
 def undo_instructions():
-    db.session.execute('TRUNCATE instructions RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE instructions CASCADE;')
     db.session.commit()

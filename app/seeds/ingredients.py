@@ -269,5 +269,5 @@ def seed_ingredients():
 
 
 def undo_ingredients():
-    db.session.execute('TRUNCATE ingredients RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE ingredients CASCADE;')
     db.session.commit()
