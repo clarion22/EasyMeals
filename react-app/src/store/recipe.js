@@ -1,4 +1,6 @@
 const LOAD_RECIPES = "recipes/loadRecipes";
+const SELECT_FOOD = "recipes/selectFood"
+
 
 export const loadRecipes = (recipes) => {
   return {
@@ -6,6 +8,13 @@ export const loadRecipes = (recipes) => {
     payload: recipes,
   };
 };
+
+export const selectFood = (recipe) => {
+  return {
+    type: SELECT_FOOD,
+    payload: recipe
+  }
+}
 
 export const getRecipes = () => async (dispatch) => {
   const response = await fetch(`/api/foods/`, {
@@ -18,8 +27,13 @@ export const getRecipes = () => async (dispatch) => {
   return recipes
 }
 
+const initialState = {
+  selected: {Protein: "", Fruit: "", Vegetables: "", Carbs: "", Dairy: ""}
+}
 
-const recipeReducer = (state = { }, action) => {
+
+
+const recipeReducer = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case LOAD_RECIPES:
@@ -34,6 +48,10 @@ const recipeReducer = (state = { }, action) => {
       newState.vegetables = vegetables;
       newState.dairy = dairy;
       newState.carbs = carbs;
+      return newState;
+    case SELECT_FOOD:
+      newState.selected[action.payload.food_group] = action.payload;
+      return newState;
       return newState;
     default:
       return state;

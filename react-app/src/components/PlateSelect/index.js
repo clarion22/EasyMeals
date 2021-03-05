@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-
+import * as recipeActions from '../../store/recipe'
+import './plateselect.css'
 
 function PlateSelect({foodType}) {
+  const dispatch = useDispatch();
   const recipes = useSelector(state => state.recipe[foodType])
   const [group, setGroup] = useState('')
   const [toggle, setToggle] = useState(false)
@@ -26,6 +28,11 @@ function PlateSelect({foodType}) {
 
   const showRecipes = (e) => {
     e.preventDefault()
+  }
+
+  const selectRecipe = (e, recipe) => {
+    e.preventDefault()
+    dispatch(recipeActions.selectFood(recipe))
   }
 
   useEffect(() => {
@@ -52,7 +59,7 @@ if (!loaded) {
                 ))}
               </select>
               {filteredFood.map(recipe => (
-                <div key={recipe.id} style={{borderTop: 'solid 1px black'}}>
+                <div id={recipe.id} key={recipe.id} style={{borderTop: 'solid 1px black'}} className="recipe_box" onClick={(e) => selectRecipe(e, recipe)}>
                   <div>{recipe.title}</div>
                   <div>{recipe.cook_time}</div>
                   <div><img style={{height: '50px'}} src={recipe.img_link} alt='food' /></div>
