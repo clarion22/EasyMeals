@@ -1,4 +1,6 @@
 const SAVE_PLATE = "plate/savePlate";
+const LOAD_PLATE = "plate/loadPlates"
+
 
 export const savePlate = (plate) => {
   return {
@@ -6,6 +8,13 @@ export const savePlate = (plate) => {
     payload: plate,
   };
 };
+
+export const loadPlates = () => (plates) => {
+  return {
+    type: LOAD_PLATE,
+    payload: plates
+  }
+}
 
 export const saveUserPlate = (proteinId, carbId, fruitId, vegetableId, dairyId, serving, userId) => async (dispatch) => {
   const response = await fetch('/api/plates/', {
@@ -26,6 +35,16 @@ export const saveUserPlate = (proteinId, carbId, fruitId, vegetableId, dairyId, 
   const plate = await response.json();
   dispatch(savePlate(plate));
   return plate;
+}
+
+export const loadUserPlates = (userId) => async (dispatch) => {
+  const response = await fetch(`/api/plates/${userId}`, {
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+  const plates = await response.json();
+  return plates;
 }
 
 
