@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,8 +7,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {saveUserPlate} from '../../store/plate';
 
 function PlateSelect () {
+  const dispatch = useDispatch()
   const selectedProtein = useSelector(state => state.recipe.selected.Protein)
   const selectedVegetables = useSelector(state => state.recipe.selected.Vegetables)
   const selectedFruit = useSelector(state => state.recipe.selected.Fruit)
@@ -28,9 +30,18 @@ function PlateSelect () {
   }, [selectedProtein, selectedVegetables, selectedFruit, selectedDairy, selectedCarb, fullPlate])
 
 
-  const savePlate = (e) => {
+  const savePlate = (
+    e,
+    proteinId=selectedProtein.id,
+    carbId=selectedCarb.id,
+    fruitId=selectedFruit.id,
+    vegetableId=selectedVegetables.id,
+    dairyId=selectedDairy.id,
+    serving=1,
+    userId=1
+    ) => {
     e.preventDefault()
-
+    dispatch(saveUserPlate(proteinId, carbId, fruitId, vegetableId, dairyId, serving, userId))
   }
 
   const rows = [

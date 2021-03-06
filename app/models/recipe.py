@@ -16,7 +16,7 @@ class Recipe(db.Model):
 
   ingredient = db.relationship("Ingredient", back_populates="recipe")
   instruction = db.relationship("Instruction", back_populates="recipe")
-  plate = db.relationship("Plate", back_populates="recipe")
+  # plate = db.relationship("Plate", back_populates="recipe")
 
 
   def to_dict(self):

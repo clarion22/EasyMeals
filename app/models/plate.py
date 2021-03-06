@@ -16,7 +16,12 @@ class Plate(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable =False)
 
   user = db.relationship("User", back_populates="plate")
-  recipe = db.relationship("Recipe", back_populates="plate")
+  # recipe = db.relationship("Recipe", back_populates="plate")
+  protein = db.relationship("Recipe", foreign_keys=[protein_id])
+  carbs = db.relationship("Recipe", foreign_keys=[carbs_id])
+  dairy = db.relationship("Recipe", foreign_keys=[dairy_id])
+  fruit = db.relationship("Recipe", foreign_keys=[fruit_id])
+  vegetables = db.relationship("Recipe", foreign_keys=[vegetables_id])
 
 
   def to_dict(self):

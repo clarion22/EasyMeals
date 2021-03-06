@@ -7,11 +7,21 @@ export const savePlate = (plate) => {
   };
 };
 
-export const saveUserPlate = () => async (dispatch) => {
-  const response = await fetch('/api/plates', {
+export const saveUserPlate = (proteinId, carbId, fruitId, vegetableId, dairyId, serving, userId) => async (dispatch) => {
+  const response = await fetch('/api/plates/', {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      protein_id: proteinId,
+      carb_id: carbId,
+      fruit_id: fruitId,
+      vegetables_id: vegetableId,
+      dairy_id: dairyId,
+      serving: serving,
+      user_id: userId,
+    }),
   });
   const plate = await response.json();
   dispatch(savePlate(plate));
@@ -23,7 +33,7 @@ const plateReducer = (state = { }, action) => {
   let newState = { ...state };
   switch (action.type) {
     case SAVE_PLATE:
-      newState.user = action.payload;
+      newState = action.payload;
       return newState;
     default:
       return state;
