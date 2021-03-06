@@ -23,7 +23,7 @@ function PlateSelect () {
 
   const [foodChange, setFoodChange] = useState(false)
   const [fullPlate, setFullPlate] = useState(false)
-
+  const [buttonDisable, setButtonDisable] = useState(false)
   useEffect(() => {
     setFoodChange(true)
     if (selectedProtein && selectedVegetables && selectedFruit && selectedDairy && selectedCarb) setFullPlate(true)
@@ -41,6 +41,7 @@ function PlateSelect () {
     userId=1
     ) => {
     e.preventDefault()
+    setButtonDisable(true)
     dispatch(saveUserPlate(proteinId, carbId, fruitId, vegetableId, dairyId, serving, userId))
   }
 
@@ -77,7 +78,7 @@ function PlateSelect () {
           </TableBody>
         </Table>
       </TableContainer>
-      {fullPlate ? <button onClick={savePlate}>Save your Plate</button> : ""}
+      {fullPlate ? <button onClick={savePlate} disabled={buttonDisable}>Save your Plate</button> : ""}
     </>
   )
 }
