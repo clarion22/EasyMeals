@@ -30,4 +30,4 @@ def load_plates(user_id):
         print(plate.fruit.title)
         print(plate.dairy.title)
         print(plate.carbs.title)
-    return { plate.id: plate.to_dict() for plate in plates}
+    return { plate.id: plate.to_join() for plate in plates}

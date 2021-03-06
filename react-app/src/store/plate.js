@@ -1,17 +1,17 @@
 const SAVE_PLATE = "plate/savePlate";
-const LOAD_PLATE = "plate/loadPlates"
+const LOAD_PLATES = "plate/loadPlates"
 
 
-export const savePlate = (plate) => {
+export const savePlate= (plate) => {
   return {
     type: SAVE_PLATE,
     payload: plate,
   };
 };
 
-export const loadPlates = () => (plates) => {
+export const loadPlates = (plates) => {
   return {
-    type: LOAD_PLATE,
+    type: LOAD_PLATES,
     payload: plates
   }
 }
@@ -37,7 +37,7 @@ export const saveUserPlate = (proteinId, carbsId, fruitId, vegetableId, dairyId,
   return plate;
 }
 
-export const loadUserPlates = async (userId) => {
+export const loadUserPlates = (userId) => async (dispatch) => {
   console.log('load user plate thunk start')
   const response = await fetch(`/api/plates/${userId}`, {
     headers: {
@@ -45,6 +45,7 @@ export const loadUserPlates = async (userId) => {
     }
   })
   const plates = await response.json();
+  dispatch(loadPlates(plates))
   console.log('the plates', plates)
   return plates;
 }
@@ -54,6 +55,9 @@ const plateReducer = (state = { }, action) => {
   let newState = { ...state };
   switch (action.type) {
     case SAVE_PLATE:
+      newState[action.payload.id] = action.payload;
+      return newState;
+    case LOAD_PLATES:
       newState = action.payload;
       return newState;
     default:
