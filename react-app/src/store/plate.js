@@ -16,7 +16,7 @@ export const loadPlates = () => (plates) => {
   }
 }
 
-export const saveUserPlate = (proteinId, carbId, fruitId, vegetableId, dairyId, serving, userId) => async (dispatch) => {
+export const saveUserPlate = (proteinId, carbsId, fruitId, vegetableId, dairyId, serving, userId) => async (dispatch) => {
   const response = await fetch('/api/plates/', {
     method: "POST",
     headers: {
@@ -24,7 +24,7 @@ export const saveUserPlate = (proteinId, carbId, fruitId, vegetableId, dairyId, 
     },
     body: JSON.stringify({
       protein_id: proteinId,
-      carb_id: carbId,
+      carbs_id: carbsId,
       fruit_id: fruitId,
       vegetables_id: vegetableId,
       dairy_id: dairyId,
@@ -37,13 +37,15 @@ export const saveUserPlate = (proteinId, carbId, fruitId, vegetableId, dairyId, 
   return plate;
 }
 
-export const loadUserPlates = (userId) => async (dispatch) => {
+export const loadUserPlates = async (userId) => {
+  console.log('load user plate thunk start')
   const response = await fetch(`/api/plates/${userId}`, {
     headers: {
       "Content-Type": "application/json",
     }
   })
   const plates = await response.json();
+  console.log('the plates', plates)
   return plates;
 }
 
