@@ -17,11 +17,12 @@ const SignUpForm = ({setOpen}) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await dispatch(signUp(username, email, password));
+      const user = await dispatch(signUp(username, email, name, password));
       if (!user.errors) {
         setOpen(false)
         return <Redirect to="/" />;
       } else {
+        console.log('errors:', user.errors)
         setErrors(user.errors);
       }
     }
@@ -77,7 +78,7 @@ const SignUpForm = ({setOpen}) => {
         <label>Name</label>
         <input
           type="text"
-          name="emnameail"
+          name="name"
           onChange={updateName}
           value={name}
         ></input>

@@ -28,8 +28,8 @@ export const authenticate = () => async (dispatch) => {
 export const signUp = (
   username,
   email,
-  password,
   name,
+  password,
 ) => async (dispatch) => {
   const response = await fetch("/api/auth/signup", {
     method: "POST",
@@ -39,8 +39,8 @@ export const signUp = (
     body: JSON.stringify({
       username,
       email,
-      password,
       name,
+      password,
     }),
   });
   const user = await response.json();
