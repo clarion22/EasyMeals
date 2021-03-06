@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CalorieForm from '../CalorieForm';
 import PlateSelect from '../PlateSelect'
+import PlateTable from '../PlateTable'
 import './createplate.css'
 
 function CreatePlate() {
@@ -26,6 +27,7 @@ function CreatePlate() {
           <Paper style={{height: '400px'}} className="circle">
             <span className="dot"></span>
           </Paper>
+          <PlateTable />
           <Grid container spacing={1}>
             <Grid item xs={6}>
               <Paper>
@@ -68,10 +70,11 @@ function CreatePlate() {
           <Paper>
              <CalorieForm setRecommendation={setRecommendation} />
           </Paper>
-          <PlateSelect />
-          <PlateSelect />
-          <PlateSelect />
-          <PlateSelect />
+          <PlateSelect foodType={"protein"}/>
+          <PlateSelect foodType={"fruit"}/>
+          <PlateSelect foodType={"dairy"}/>
+          <PlateSelect foodType={"vegetables"}/>
+          <PlateSelect foodType={"carbs"}/>
         </Grid>
       </Grid>
     </div>

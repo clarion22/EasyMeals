@@ -3,6 +3,12 @@ from app.models import db, Ingredient, Recipe
 def seed_ingredients():
   recipe = Recipe.query.filter_by(title="Greek Chicken Skewers").first()
   recipe2 = Recipe.query.filter_by(title="Jalapeno Steak").first()
+  recipe3 = Recipe.query.filter_by(title="Sunday Best Fruit Salad").first()
+  recipe4 = Recipe.query.filter_by(title="Easy Roasted Broccoli").first()
+  recipe5 = Recipe.query.filter_by(title="Chia Yogurt Power Bowl").first()
+  recipe6 = Recipe.query.filter_by(title="Lime Cilantro Rice").first()
+
+
   ingredients1 = Ingredient(name="lemon juice",
                             amount=1,
                             measurement_unit="tbsp",
@@ -106,6 +112,113 @@ def seed_ingredients():
                             recipe_id=recipe2.id
   )
 
+  cingredient1 = Ingredient(name="pineapple chunks",
+                            amount=20,
+                            measurement_unit="oz",
+                            recipe_id=recipe3.id
+                            )
+  cingredient2 = Ingredient(name="apple",
+                            amount=1,
+                            measurement_unit="",
+                            recipe_id=recipe3.id
+                            )
+  cingredient3 = Ingredient(name="peach pie filling",
+                            amount=10,
+                            measurement_unit="oz",
+                            recipe_id=recipe3.id
+                            )
+
+  cingredient4 = Ingredient(name="banana",
+                            amount=1,
+                            measurement_unit="",
+                            recipe_id=recipe3.id
+                            )
+
+  cingredient5 = Ingredient(name="kiwis",
+                            amount=1.5,
+                            measurement_unit="",
+                            recipe_id=recipe3.id
+                            )
+
+  cingredient6 = Ingredient(name="strawberries",
+                            amount=2,
+                            measurement_unit="oz",
+                            recipe_id=recipe3.id
+                            )
+
+  dingredient1 = Ingredient(name="broccoli",
+                            amount=4,
+                            measurement_unit="oz",
+                            recipe_id=recipe4.id
+                            )
+
+  dingredient2 = Ingredient(name="olive oil",
+                            amount=1,
+                            measurement_unit="tbsp",
+                            recipe_id=recipe4.id
+                            )
+
+  dingredient3 = Ingredient(name="ground black pepper",
+                            amount=1,
+                            measurement_unit="tsp",
+                            recipe_id=recipe4.id
+                            )
+
+  eingredient1 = Ingredient(name="Greek yogurt",
+                            amount=1,
+                            measurement_unit="cups",
+                            recipe_id=recipe5.id)
+
+  eingredient2 = Ingredient(name="milk",
+                            amount=0.75,
+                            measurement_unit="cups",
+                            recipe_id=recipe5.id)
+
+  eingredient3 = Ingredient(name="chia seeds",
+                            amount=0.125,
+                            measurement_unit="cups",
+                            recipe_id=recipe5.id)
+
+  eingredient4 = Ingredient(name="vanilla extract",
+                            amount=1,
+                            measurement_unit="tsp",
+                            recipe_id=recipe5.id)
+
+  eingredient5 = Ingredient(name="honey",
+                            amount=1.5,
+                            measurement_unit="tbsp",
+                            recipe_id=recipe5.id)
+
+  fingredient1 = Ingredient(name="water",
+                            amount=2,
+                            measurement_unit="tbsp",
+                            recipe_id=recipe6.id)
+
+  fingredient2 = Ingredient(name="butter",
+                            amount=2,
+                            measurement_unit="tsp",
+                            recipe_id=recipe6.id)
+
+  fingredient3 = Ingredient(name="white rice",
+                            amount=0.5,
+                            measurement_unit="cups",
+                            recipe_id=recipe6.id)
+
+  fingredient4 = Ingredient(name="lime zest",
+                            amount=0.5,
+                            measurement_unit="tsp",
+                            recipe_id=recipe6.id)
+
+  fingredient5 = Ingredient(name="fresh lime juice",
+                            amount=1,
+                            measurement_unit="tbsp",
+                            recipe_id=recipe6.id)
+
+  fingredient6 = Ingredient(name="cilantro",
+                            amount=0.25,
+                            measurement_unit="cups",
+                            recipe_id=recipe6.id)
+
 
   db.session.add(ingredients1)
   db.session.add(ingredients2)
@@ -126,6 +239,28 @@ def seed_ingredients():
   db.session.add(bingredient5)
   db.session.add(bingredient6)
   db.session.add(bingredient7)
+  db.session.add(cingredient1)
+  db.session.add(cingredient2)
+  db.session.add(cingredient3)
+  db.session.add(cingredient4)
+  db.session.add(cingredient5)
+  db.session.add(cingredient6)
+  db.session.add(dingredient1)
+  db.session.add(dingredient2)
+  db.session.add(dingredient3)
+  db.session.add(eingredient1)
+  db.session.add(eingredient2)
+  db.session.add(eingredient3)
+  db.session.add(eingredient4)
+  db.session.add(eingredient5)
+  db.session.add(fingredient1)
+  db.session.add(fingredient1)
+  db.session.add(fingredient1)
+  db.session.add(fingredient2)
+  db.session.add(fingredient3)
+  db.session.add(fingredient4)
+  db.session.add(fingredient5)
+  db.session.add(fingredient6)
 
 
   db.session.commit()
@@ -135,5 +270,5 @@ def seed_ingredients():
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
 def undo_ingredients():
-    db.session.execute('TRUNCATE ingredients CASCADE;')
+    db.session.execute('TRUNCATE ingredients RESTART IDENTITY;')
     db.session.commit()
