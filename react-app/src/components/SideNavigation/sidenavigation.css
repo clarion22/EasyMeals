@@ -1,11 +1,12 @@
-.nav_wrapper {
+ .nav_wrapper {
   height: 100%;
   background-color: #e26d82;
   left: 0;
   bottom: 0;
   max-width: 300px;
   padding-top: 80px;
-  z-index: -1;
+  margin: 0;
+  display: inline-block;
 }
 
 .nav_wrapper ul li {
@@ -21,27 +22,39 @@
   padding: 0;
 }
 
-.nav_wrapper a {
+.nav_wrapper .nav_link {
   padding-left: 8px;
 }
+
 .nav_wrapper ul li:hover {
   background-color:#fba5b5a2;
-  color: #ffebef;
+  color: #ffffff;
+}
+
+.nav_link:hover {
+  color: white !important;
+}
+
+.nav_wrapper ul li .nav_link {
+  color: #e4d6d9;
+  text-decoration: none;
+  display: inline-block;
+  width: 250px;
 }
 
 .nav_wrapper h1 {
   text-align: center;
   color: #e4d6d9;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .nav_wrapper .icon {
   color: #e4d6d9;
-  margin: 0 auto;
   transform: scale(4)
 }
 
 .user_icon {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  justify-content: center;
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom';
 import './sidenavigation.css'
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage';
@@ -13,9 +14,9 @@ function SideNavigation() {
       </div>
       <h1>PROFILE</h1>
       <ul>
-        <li><AssessmentIcon /><a>Dashboard</a></li>
-        <li><EmojiFoodBeverageIcon /><a>My Plates</a></li>
-        <li><EventNoteIcon /><a>Calendar</a></li>
+        <li><AssessmentIcon /><NavLink to="/profile/dashboard" className='nav_link'>Dashboard</NavLink></li>
+        <li><EmojiFoodBeverageIcon /><NavLink to="/profile/plates" className='nav_link'>My Plates</NavLink></li>
+        <li><EventNoteIcon /><NavLink to="/" className='nav_link'>Calendar</NavLink></li>
       </ul>
     </div>
   )

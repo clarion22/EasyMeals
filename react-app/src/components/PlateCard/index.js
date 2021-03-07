@@ -7,10 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import CardHeader from '@material-ui/core/CardHeader';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import { red } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
+import {loadUserPlates} from '../../store/plate'
 const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'
 
 
@@ -38,6 +39,12 @@ function PlateCard() {
   const classes = useStyles();
   const plates = useSelector(state => Object.values(state.plate))
   const [loaded, setLoaded] = useState(false);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(loadUserPlates(1))
+  },[dispatch])
+
   useEffect(() => {
     if (loaded === true) console.log('plates', plates)
   }, [loaded])

@@ -10,8 +10,8 @@ import Home from './components/Home'
 import { authenticate } from "./services/auth";
 import CssBaseline, { cssBaseline } from '@material-ui/core/CssBaseline'
 import CreatePlate from './components/CreatePlate'
-import UserProfile from './components/UserProfile'
-
+import DashBoard from './components/DashBoard'
+import MyPlates from './components/MyPlates';
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -54,8 +54,14 @@ function App() {
         <Route path="/" exact={true}>
           <Home />
         </Route>
-        <Route path="/profile" exact={true}>
-          <UserProfile />
+        <Route path="/profile/dashboard" exact={true}>
+          <DashBoard />
+        </Route>
+        <Route path="/profile/plates" exact={true}>
+          <MyPlates />
+        </Route>
+        <Route path="/profile/calendar" exact={true}>
+
         </Route>
       </Switch>
     </BrowserRouter>
