@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'pink',
     display: 'flex',
     justifyContent: 'space-between',
-    minHeight: '70px'
+    minHeight: '70px',
   }
 }))
 

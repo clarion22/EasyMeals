@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {useDispatch} from 'react-redux';
 import {loadUserPlates} from '../../store/plate'
 import PlateCard from '../PlateCard'
-
+import SideNavigation from '../SideNavigation';
 
 
 function UserProfile() {
@@ -15,8 +15,8 @@ function UserProfile() {
   }, [])
 
   return (
-    <div>
-      <PlateCard />
+    <div style={{height: '100%', bottom: 0, backgroundColor: '#fff4f6'}}>
+      <SideNavigation />
     </div>
   )
 }
