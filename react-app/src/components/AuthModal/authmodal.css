@@ -17,3 +17,22 @@
 .modal_btns > button:focus {
  outline: none;
 }
+
+.login_btn {
+  border: 1px solid rgba(144, 171, 37, 0.4);
+  padding: 4px 35px;
+  background-color: #f9a826;
+  border-radius: 40px;
+  color: white;
+  font-family: roboto;
+  font-size: 26px;
+  margin-right: 50px;
+}
+
+.login_btn:focus {
+  outline: none;
+}
+
+.login_btn:hover {
+  background-color: #f7c370;
+}
