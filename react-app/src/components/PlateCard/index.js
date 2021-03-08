@@ -12,6 +12,8 @@ import { red } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import {loadUserPlates} from '../../store/plate'
+import Grid from '@material-ui/core/Grid';
+import RecipeCard from './RecipeCard';
 const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'
 
 
@@ -37,121 +39,53 @@ const useStyles = makeStyles({
 
 function PlateCard() {
   const classes = useStyles();
-  const plates = useSelector(state => Object.values(state.plate))
-  const [loaded, setLoaded] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(loadUserPlates(1))
   },[dispatch])
 
+  const plates = useSelector(state => Object.values(state.plate))
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
-    if (loaded === true) console.log('plates', plates)
-  }, [loaded])
+    if (plates && plates.length) setLoaded(true)
+   }, [plates.length])
 
- useEffect(() => {
-  if (plates && plates.length) setLoaded(true)
- }, [plates.length])
-
- if (!loaded) {
-   return (
-     <div>Loading...</div>
-   )
- }
+   if (!loaded) {
+     return (
+       <div>Loading...</div>
+     )
+   }
 
   return (
     <div>
-      <Paper className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-          <Paper className={classes.card}>
-          <CardContent>
-              <Typography variant='h5'>{plates[1]['carbs'][0]['title']}</Typography>
-          </CardContent>
-            <div style={{ display: 'flex'}}>
-              <img style={{ height: '120px', width: '120px'}} src={plates[1]['carbs'][0]['img_link']} alt="the plete" />
-            <div style={{padding: "2px", width: '100%'}}>
-              <Typography>
-                Cook Time: {plates[1]['carbs'][0]['cook_time']}
-              </Typography>
-              <Typography>
-                Calories: {plates[1]['carbs'][0]['calories']}
-              </Typography>
-            </div>
-            </div>
-          </Paper>
-          <Paper className={classes.card}>
-          <CardContent>
-             <Typography variant='h5'>{plates[1]['protein'][0]['title']}</Typography>
-          </CardContent>
-            <div style={{ display: 'flex'}}>
-              <img style={{ height: '120px', width: '120px'}} src={plates[1]['protein'][0]['img_link']} alt="the plete" />
-            <div style={{padding: "2px", width: '100%'}}>
-              <Typography>
-                Cook Time: {plates[1]['protein'][0]['cook_time']}
-              </Typography>
-              <Typography>
-                Calories: {plates[1]['protein'][0]['calories']}
-              </Typography>
-            </div>
-            </div>
-          </Paper >
-          <Paper className={classes.card}>
-          <CardContent>
-             <Typography variant='h5'>{plates[1]['dairy'][0]['title']}</Typography>
-          </CardContent>
-            <div style={{ display: 'flex'}}>
-              <img style={{ height: '120px', width: '120px'}} src={plates[1]['dairy'][0]['img_link']} alt="the plete" />
-            <div style={{padding: "2px", width: '100%'}}>
-              <Typography>
-                Cook Time: {plates[1]['dairy'][0]['cook_time']}
-              </Typography>
-              <Typography>
-                Calories: {plates[1]['dairy'][0]['calories']}
-              </Typography>
-            </div>
-            </div>
-          </Paper>
-          <Paper className={classes.card}>
-          <CardContent>
-             <Typography variant='h5'>{plates[1]['protein'][0]['title']}</Typography>
-          </CardContent>
-            <div style={{ display: 'flex'}}>
-              <img style={{ height: '120px', width: '120px'}} src={plates[1]['protein'][0]['img_link']} alt="the plete" />
-            <div style={{padding: "2px", width: '100%'}}>
-              <Typography>
-                Cook Time: {plates[1]['protein'][0]['cook_time']}
-              </Typography>
-              <Typography>
-                Calories: {plates[1]['protein'][0]['calories']}
-              </Typography>
-            </div>
-            </div>
-          </Paper>
-          <Paper className={classes.card}>
-          <CardContent>
-             <Typography variant='h5'>{plates[1]['protein'][0]['title']}</Typography>
-          </CardContent>
-            <div style={{ display: 'flex'}}>
-              <img style={{ height: '120px', width: '120px'}} src={plates[1]['protein'][0]['img_link']} alt="the plete" />
-            <div style={{padding: "2px", width: '100%'}}>
-              <Typography>
-                Cook Time: {plates[1]['protein'][0]['cook_time']}
-              </Typography>
-              <Typography>
-                Calories: {plates[1]['protein'][0]['calories']}
-              </Typography>
-            </div>
-            </div>
-          </Paper>
-          </Paper>
+      {plates.map((plate, i) => (
+        <Paper className={classes.root}>
+        <Grid container spacing={1} style={{wordBreak: 'break-word'}} >
+          <Grid item xs={12}>
+               <CardHeader
+                 avatar={
+                   <Avatar aria-label="recipe" className={classes.avatar}>
+                   R
+                 </Avatar>
+                }
+                  title={plate.date}
+                />
+               </Grid>
+               <Grid item container direction="column" xs={6}>
+                     <RecipeCard i={i} foodGroup={'carbs'}/>
+                     <RecipeCard i={i} foodGroup={'protein'}/>
+                     <RecipeCard i={i} foodGroup={'fruit'}/>
+               </Grid>
+               <Grid item container direction="column" xs={6}>
+                     <RecipeCard i={i} foodGroup={'vegetables'}/>
+                     <RecipeCard i={i} foodGroup={'dairy'}/>
+               </Grid>
+        </Grid>
+      </Paper>
+      ))}
     </div>
   )
 }
