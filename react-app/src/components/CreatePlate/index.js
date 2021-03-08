@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import CalorieForm from '../CalorieForm';
 import PlateSelect from '../PlateSelect'
 import PlateTable from '../PlateTable'
+import DoughnutChart from '../Graphs/DoughnutChart';
 import './createplate.css'
 
 function CreatePlate() {
@@ -25,7 +26,8 @@ function CreatePlate() {
       <Grid container spacing={2}>
         <Grid item container direction="column" xs={6}>
           <Paper style={{height: '400px'}} className="circle">
-            <span className="dot"></span>
+            {/* <span className="dot"></span> */}
+            <DoughnutChart />
           </Paper>
           <PlateTable />
           <Grid container spacing={1}>

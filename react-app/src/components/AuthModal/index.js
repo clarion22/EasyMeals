@@ -41,8 +41,8 @@ function AuthModal() {
   const body = (
     <div className={classes.paper}>
       <div className='modal_btns'>
-          <button id="login_btn" className={toggleLogin ? '' : 'active'} type='button' onClick={() => setToggleLogin(true)}>Log In</button>
-          <button type='button' className={toggleLogin ? 'active' : 'active'} onClick={() => setToggleLogin(false)}>Sign Up</button>
+          <button id="login_btn" className={toggleLogin ? '' : 'inactive'} type='button' onClick={() => setToggleLogin(true)}>Log In</button>
+          <button type='button' className={toggleLogin ? 'inactive' : ''} onClick={() => setToggleLogin(false)}>Sign Up</button>
       </div>
       {toggleLogin ? <LoginForm setOpen={setOpen} /> : <SignUpForm setOpen={setOpen}/>}
     </div>

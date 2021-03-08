@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Plate
+from app.models import db, Plate, Recipe
 
 plate_routes = Blueprint('plates', __name__)
 
@@ -8,7 +8,7 @@ def save_plate():
     data = request.get_json()
     plate = Plate(
       protein_id=data['protein_id'],
-      carbs_id=data['carb_id'],
+      carbs_id=data['carbs_id'],
       fruit_id=data['fruit_id'],
       vegetables_id=data['vegetables_id'],
       dairy_id=data['dairy_id'],
@@ -19,3 +19,15 @@ def save_plate():
     db.session.add(plate)
     db.session.commit()
     return plate.to_dict()
+
+@plate_routes.route('/<int:user_id>')
+def load_plates(user_id):
+    plates = Plate.query.filter_by(user_id=user_id).all()
+    print('-------------------------------------')
+    for plate in plates:
+        print('-------------------------------------')
+        print(dir(plate))
+        print(plate.fruit.title)
+        print(plate.dairy.title)
+        print(plate.carbs.title)
+    return { plate.id: plate.to_join() for plate in plates}
