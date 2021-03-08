@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 
 function MyPlates() {
   return (
-    <div style={{height: '100%', bottom: 0, backgroundColor: '#fff4f6', display: 'flex'}}>
+    <div style={{height: '100%', bottom: 0, backgroundColor: '#f4fff8', display: 'flex'}}>
       <SideNavigation />
       <div className="myplate_wrapper">
         <Grid container spacing={1} >

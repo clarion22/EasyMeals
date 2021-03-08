@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import CardHeader from '@material-ui/core/CardHeader';
 import {useSelector, useDispatch} from 'react-redux';
-import { red } from '@material-ui/core/colors';
+import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import {loadUserPlates, deletePlate} from '../../store/plate'
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
     height: 140,
   },
   avatar: {
-    backgroundColor: red[100],
+    backgroundColor: green[900],
   },
   card: {
     minWidth: 300,
@@ -60,6 +60,9 @@ function PlateCard() {
    const handleDelete = (plateId) => {
       dispatch(deletePlate(plateId))
    }
+
+
+   if (plates && plates.length === 0) return ""
 
    if (!loaded) {
      return (

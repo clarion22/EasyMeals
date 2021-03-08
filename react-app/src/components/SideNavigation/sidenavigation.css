@@ -1,6 +1,6 @@
  .nav_wrapper {
   height: 100%;
-  background-color: #e26d82;
+  background-color: #1e672d;
   left: 0;
   bottom: 0;
   max-width: 300px;
@@ -15,7 +15,7 @@
   font-size: 30px;
   display: block;
   padding-left: 20px;
-  color: #e4d6d9;
+  color: #e1eee3;
 }
 
 .nav_wrapper ul {
@@ -28,7 +28,7 @@
 }
 
 .nav_wrapper ul li:hover {
-  background-color:#fba5b5a2;
+  background-color:#28923e;
   color: #ffffff;
 }
 

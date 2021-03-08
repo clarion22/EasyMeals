@@ -8,7 +8,7 @@ import './navbar.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: 'pink',
+    backgroundColor: '#47a05a',
     display: 'flex',
     justifyContent: 'space-between',
     minHeight: '70px',
