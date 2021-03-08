@@ -11,7 +11,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { red } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
-import {loadUserPlates} from '../../store/plate'
+import {loadUserPlates, deletePlate} from '../../store/plate'
 import Grid from '@material-ui/core/Grid';
 import RecipeCard from './RecipeCard';
 const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'
@@ -22,7 +22,11 @@ const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-b
 const useStyles = makeStyles({
   root: {
     maxWidth: 620,
-    boxShadow: "5px 3px 11px 1px rgba(0,0,0,0.5)"
+    boxShadow: "5px 3px 11px 1px rgba(0,0,0,0.5)",
+    marginTop: 50,
+    paddingBottom: 10,
+    boxSizing: 'border-box',
+    padding: 15
   },
   media: {
     height: 140,
@@ -53,6 +57,10 @@ function PlateCard() {
     if (plates && plates.length) setLoaded(true)
    }, [plates.length])
 
+   const handleDelete = (plateId) => {
+      dispatch(deletePlate(plateId))
+   }
+
    if (!loaded) {
      return (
        <div>Loading...</div>
@@ -60,7 +68,7 @@ function PlateCard() {
    }
 
   return (
-    <div>
+    <div style={{minWidth: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
       {plates.map((plate, i) => (
         <Paper className={classes.root}>
         <Grid container spacing={1} style={{wordBreak: 'break-word'}} >
@@ -82,6 +90,7 @@ function PlateCard() {
                <Grid item container direction="column" xs={6}>
                      <RecipeCard i={i} foodGroup={'vegetables'}/>
                      <RecipeCard i={i} foodGroup={'dairy'}/>
+                     <button style={{marginTop: '50px'}} onClick={() => handleDelete(plate.id)} >Delete</button>
                </Grid>
         </Grid>
       </Paper>

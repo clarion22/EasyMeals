@@ -1,6 +1,6 @@
 const SAVE_PLATE = "plate/savePlate";
-const LOAD_PLATES = "plate/loadPlates"
-
+const LOAD_PLATES = "plate/loadPlates";
+const REMOVE_PLATE = "plate/removePlate";
 
 export const savePlate= (plate) => {
   return {
@@ -13,6 +13,13 @@ export const loadPlates = (plates) => {
   return {
     type: LOAD_PLATES,
     payload: plates
+  }
+}
+
+export const removePlate = (plate) => {
+  return {
+    type: REMOVE_PLATE,
+    payload: plate,
   }
 }
 
@@ -50,6 +57,18 @@ export const loadUserPlates = (userId) => async (dispatch) => {
   return plates;
 }
 
+export const deletePlate = (plateId) => async (dispatch) => {
+  const response = await fetch(`/api/plates/user/${plateId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+  const plate = await response.json();
+  dispatch(removePlate(plate))
+  return plate;
+}
+
 
 const plateReducer = (state = { }, action) => {
   let newState = { ...state };
@@ -60,6 +79,9 @@ const plateReducer = (state = { }, action) => {
     case LOAD_PLATES:
       newState = action.payload;
       return newState;
+    case REMOVE_PLATE:
+      delete newState[action.payload.id]
+      return newState
     default:
       return state;
   }
