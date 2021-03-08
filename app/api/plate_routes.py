@@ -23,11 +23,11 @@ def save_plate():
 @plate_routes.route('/<int:user_id>')
 def load_plates(user_id):
     plates = Plate.query.filter_by(user_id=user_id).all()
-    print('-------------------------------------')
-    for plate in plates:
-        print('-------------------------------------')
-        print(dir(plate))
-        print(plate.fruit.title)
-        print(plate.dairy.title)
-        print(plate.carbs.title)
     return { plate.id: plate.to_join() for plate in plates}
+
+@plate_routes.route('/user/<int:plate_id>', methods={"DELETE"})
+def delete_plate(plate_id):
+    plate = Plate.query.filter_by(id=plate_id).first()
+    db.session.delete(plate)
+    db.session.commit()
+    return plate.to_dict()
