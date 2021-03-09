@@ -36,30 +36,18 @@ function App() {
     <CssBaseline />
       <NavBar />
       <Switch>
-        <Route path="/login" exact={true}>
-          <LoginForm/>
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path="/users" exact={true}>
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute>
         <Route path="/createplate" exact={true}>
           <CreatePlate />
         </Route>
         <Route path="/" exact={true}>
           <Home />
         </Route>
-        <Route path="/profile/dashboard" exact={true}>
+        <ProtectedRoute path="/profile/dashboard" exact={true}>
           <DashBoard />
-        </Route>
-        <Route path="/profile/plates" exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path="/profile/plates" exact={true}>
           <MyPlates />
-        </Route>
+        </ProtectedRoute>
         <Route path="/profile/calendar" exact={true}>
 
         </Route>

@@ -1,0 +1,37 @@
+.auth_form {
+  width: 380px;
+  margin: 0 auto;
+}
+
+.auth_form label {
+  display: block;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.auth_form input {
+  width: 100%;
+  border: solid 1px rgba(138, 137, 137, 0.5);
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.auth_btn {
+  padding: 8px;
+  background-color: #f9a826;
+  color: white;
+  border: 1px solid rgba(184, 160, 27, 0.5);
+  font-family: "Roboto";
+  font-size: 18px;
+  margin: 4% auto;
+  display: block;
+  width: 100%;
+}
+
+.auth_btn:focus {
+  outline: none;
+}
+
+.auth_btn:hover {
+  background-color: #fdce82;
+}

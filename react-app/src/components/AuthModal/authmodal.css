@@ -6,7 +6,9 @@
   flex-grow: 1;
   border: none;
   padding: 10px 5px;
-  background-color: #f5f5f5
+  background-color: #f5f5f5;
+  font-family: "Roboto", "Helvetica";
+  font-size: 18px;
 }
 
 .inactive {

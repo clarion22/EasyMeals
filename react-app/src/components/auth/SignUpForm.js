@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import {useDispatch} from 'react-redux'
-
+import './auth.css'
 
 const SignUpForm = ({setOpen}) => {
   const dispatch = useDispatch()
@@ -50,7 +50,7 @@ const SignUpForm = ({setOpen}) => {
 
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='auth_form' onSubmit={onSignUp}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -102,7 +102,7 @@ const SignUpForm = ({setOpen}) => {
           required={true}
         ></input>
       </div>
-      <button type="submit">Sign Up</button>
+      <button className="auth_btn" type="submit">Sign Up</button>
     </form>
   );
 };
