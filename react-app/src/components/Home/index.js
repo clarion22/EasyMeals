@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import {NavLink} from 'react-router-dom'
 import DietSvg from './Images/DietSvg'
 import './home.css'
 
@@ -19,7 +20,7 @@ export default function Home () {
         <div style={{width: '500px', padding: '0 80px', height: '50em', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center'}} >
           <h1 style={{fontSize: '3em'}}>Easy Meals</h1>
           <h2>Create nutritionally balanced meal plans to fit your lifestyle and fitness needs.</h2>
-          <button className='getstarted_btn'>GET STARTED</button>
+          <div className='getstarted_btn'><NavLink id="started_link" to={'/createplate'}>GET STARTED</NavLink></div>
         </div>
         <DietSvg />
       </div>
