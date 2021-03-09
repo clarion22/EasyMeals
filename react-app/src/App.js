@@ -13,6 +13,7 @@ import DashBoard from './components/DashBoard'
 import MyPlates from './components/MyPlates';
 import {authenticate} from './store/session';
 import {useDispatch} from 'react-redux'
+import Calendar from './components/Calendar';
 
 function App() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ function App() {
           <MyPlates />
         </ProtectedRoute>
         <Route path="/profile/calendar" exact={true}>
-
+          <Calendar />
         </Route>
       </Switch>
     </BrowserRouter>
