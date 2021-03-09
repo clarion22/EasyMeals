@@ -6,7 +6,7 @@ import SideNavigation from '../SideNavigation';
 import './calendar.css'
 
 function Calendar() {
-  const events = [{title: "today's event", start: '2021-03-09', url: 'google.com'}]
+  const events = [{title: "today's event", start: '2021-03-09T14:30:00', url: 'google.com'}, {title: 'event 2', date: "2021-03-31T19:57:00.000Z"}]
 
   const handleClick = (e) => {
     if (e.event.url) {

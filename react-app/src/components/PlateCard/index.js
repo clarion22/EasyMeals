@@ -63,6 +63,7 @@ function PlateCard() {
    }
 
 
+
    if (plates && plates.length === 0) return ""
 
    if (!loaded) {
@@ -95,6 +96,7 @@ function PlateCard() {
                      <RecipeCard i={i} foodGroup={'vegetables'}/>
                      <RecipeCard i={i} foodGroup={'dairy'}/>
                      <PlateDatePicker />
+                     <button>Add to calendar</button>
                      <button style={{marginTop: '50px'}} onClick={() => handleDelete(plate.id)} >Delete</button>
                </Grid>
         </Grid>
