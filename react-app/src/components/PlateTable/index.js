@@ -16,6 +16,7 @@ function PlateSelect () {
   const selectedFruit = useSelector(state => state.recipe.selected.Fruit)
   const selectedDairy = useSelector(state => state.recipe.selected.Dairy)
   const selectedCarb = useSelector(state => state.recipe.selected.Carbs)
+  const sessionUser = useSelector(state => state.session.user)
 
   function createData(name, recipe, calories, servings) {
     return { name, recipe, calories, servings };
@@ -38,7 +39,7 @@ function PlateSelect () {
     vegetableId=selectedVegetables.id,
     dairyId=selectedDairy.id,
     serving=1,
-    userId=1
+    userId=sessionUser.id
     ) => {
     e.preventDefault()
     setButtonDisable(true)
@@ -59,7 +60,7 @@ function PlateSelect () {
           <TableHead>
             <TableRow>
               <TableCell>Food Group</TableCell>
-              <TableCell align="right">Recipe</TableCell>
+              <TableCell align="right" style={{minWidth: '200px'}}>Recipe</TableCell>
               <TableCell align="right">Calories</TableCell>
               <TableCell align="right">Servings</TableCell>
             </TableRow>
@@ -78,7 +79,7 @@ function PlateSelect () {
           </TableBody>
         </Table>
       </TableContainer>
-      {fullPlate ? <button onClick={savePlate} disabled={buttonDisable}>Save your Plate</button> : ""}
+      {fullPlate && sessionUser ? <button onClick={savePlate} disabled={buttonDisable}>Save your Plate</button> : ""}
     </>
   )
 }

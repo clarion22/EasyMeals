@@ -12,20 +12,22 @@ import CssBaseline, { cssBaseline } from '@material-ui/core/CssBaseline'
 import CreatePlate from './components/CreatePlate'
 import DashBoard from './components/DashBoard'
 import MyPlates from './components/MyPlates';
+import {useSelector} from 'react-redux'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
     (async() => {
-      const user = await authenticate();
-      if (!user.errors) {
+
+      if (sessionUser) {
         setAuthenticated(true);
       }
       setLoaded(true);
     })();
-  }, []);
+  }, [sessionUser]);
 
   if (!loaded) {
     return null;
@@ -42,10 +44,10 @@ function App() {
         <Route path="/" exact={true}>
           <Home />
         </Route>
-        <ProtectedRoute path="/profile/dashboard" exact={true}>
+        <ProtectedRoute path="/profile/dashboard" exact={true} authenticated={authenticated}>
           <DashBoard />
         </ProtectedRoute>
-        <ProtectedRoute path="/profile/plates" exact={true}>
+        <ProtectedRoute path="/profile/plates" exact={true} authenticated={authenticated}>
           <MyPlates />
         </ProtectedRoute>
         <Route path="/profile/calendar" exact={true}>

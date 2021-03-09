@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const NavBar = ({ setAuthenticated }) => {
+const NavBar = () => {
   const classes = useStyles()
   return (
     <nav className={classes.root}>
