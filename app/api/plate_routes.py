@@ -46,3 +46,8 @@ def add_plate_event():
     db.session.add(calendar)
     db.session.commit()
     return calendar.to_dict()
+
+@plate_route.route('/calendar/<int:user_id>')
+def load_events(user_id):
+    plateEvents = Calendar.query.filter_by(user_id=user_id).all()
+    return {plateEvent.id : plateEvent.to_dict() for plateEvent in plateEvents}
