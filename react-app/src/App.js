@@ -52,9 +52,9 @@ function App() {
         <ProtectedRoute path="/profile/plates" exact={true} authenticated={authenticated}>
           <MyPlates />
         </ProtectedRoute>
-        <Route path="/profile/calendar" exact={true}>
+        <ProtectedRoute path="/profile/calendar" exact={true} authenticated={authenticated}>
           <Calendar />
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

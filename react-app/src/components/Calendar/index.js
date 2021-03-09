@@ -6,7 +6,15 @@ import SideNavigation from '../SideNavigation';
 import './calendar.css'
 
 function Calendar() {
-  const events = [{title: "today's event", date: new Date()}]
+  const events = [{title: "today's event", start: '2021-03-09', url: 'google.com'}]
+
+  const handleClick = (e) => {
+    if (e.event.url) {
+      alert("clickedlskdjf")
+    } else {
+      console.log('event', e)
+    }
+  }
   return (
     <div style={{height: '100%', bottom: 0, backgroundColor: '#f4fff8', display: 'flex'}}>
       <SideNavigation />
@@ -15,6 +23,7 @@ function Calendar() {
           defaultView='dayGridMonth'
           plugins={[dayGridPlugin]}
           events={events}
+          eventClick={handleClick}
         />
       </div>
     </div>

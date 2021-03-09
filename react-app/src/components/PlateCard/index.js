@@ -14,6 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import {loadUserPlates, deletePlate} from '../../store/plate'
 import Grid from '@material-ui/core/Grid';
 import RecipeCard from './RecipeCard';
+import PlateDatePicker from '../PlateDatePicker';
 const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'
 
 
@@ -93,6 +94,7 @@ function PlateCard() {
                <Grid item container direction="column" xs={6}>
                      <RecipeCard i={i} foodGroup={'vegetables'}/>
                      <RecipeCard i={i} foodGroup={'dairy'}/>
+                     <PlateDatePicker />
                      <button style={{marginTop: '50px'}} onClick={() => handleDelete(plate.id)} >Delete</button>
                </Grid>
         </Grid>

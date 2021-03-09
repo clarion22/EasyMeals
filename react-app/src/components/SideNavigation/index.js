@@ -16,7 +16,7 @@ function SideNavigation() {
       <ul>
         <li><AssessmentIcon /><NavLink to="/profile/dashboard" className='nav_link'>Dashboard</NavLink></li>
         <li><EmojiFoodBeverageIcon /><NavLink to="/profile/plates" className='nav_link'>My Plates</NavLink></li>
-        <li><EventNoteIcon /><NavLink to="/" className='nav_link'>Calendar</NavLink></li>
+        <li><EventNoteIcon /><NavLink to="/profile/calendar" className='nav_link'>Calendar</NavLink></li>
       </ul>
     </div>
   )
