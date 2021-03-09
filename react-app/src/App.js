@@ -7,27 +7,28 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Home from './components/Home'
-import { authenticate } from "./services/auth";
 import CssBaseline, { cssBaseline } from '@material-ui/core/CssBaseline'
 import CreatePlate from './components/CreatePlate'
 import DashBoard from './components/DashBoard'
 import MyPlates from './components/MyPlates';
-import {useSelector} from 'react-redux'
+import {authenticate} from './store/session';
+import {useDispatch} from 'react-redux'
 
 function App() {
+  const dispatch = useDispatch();
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const sessionUser = useSelector(state => state.session.user)
+
 
   useEffect(() => {
     (async() => {
-
-      if (sessionUser) {
+      const user = await dispatch(authenticate());
+      if (!user.errors) {
         setAuthenticated(true);
       }
       setLoaded(true);
     })();
-  }, [sessionUser]);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;
