@@ -49,8 +49,8 @@ function AuthModal() {
   );
 
   return (
-    <div>
-      {sessionUser ? <LogoutButton /> : <button type='button' onClick={handleOpen}>Log In</button>}
+    <div style={{margin: 'auto 0'}} >
+      {sessionUser ? <LogoutButton /> : <button className='login_btn' type='button' onClick={handleOpen}>Log In</button>}
       <Modal
       open={open}
       onClose={handleClose}

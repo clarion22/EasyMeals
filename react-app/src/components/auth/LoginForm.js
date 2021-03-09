@@ -3,6 +3,8 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import {useSelector} from 'react-redux'
+import './auth.css'
+
 
 const LoginForm = ({setOpen}) => {
   const dispatch = useDispatch();
@@ -33,7 +35,7 @@ const LoginForm = ({setOpen}) => {
 
 
   return (
-    <form onSubmit={onLogin}>
+    <form className="auth_form" onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -59,7 +61,7 @@ const LoginForm = ({setOpen}) => {
           onChange={updatePassword}
         />
         <div>
-        <button type="submit">Login</button>
+        <button className="auth_btn" type="submit">Login</button>
         </div>
       </div>
     </form>
