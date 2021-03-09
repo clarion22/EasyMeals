@@ -4,3 +4,4 @@ from .recipe import Recipe
 from .ingredient import Ingredient
 from .instruction import Instruction
 from .plate import Plate
+from .calendar import Calendar

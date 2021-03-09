@@ -3,12 +3,14 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import recipeReducer from './recipe'
 import plateReducer from './plate'
+import calendarReducer from './calendar';
 let enhancer;
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   recipe: recipeReducer,
   plate: plateReducer,
+  calendar: calendarReducer,
 });
 
 if (process.env.NODE_ENV === "production") {

@@ -3,17 +3,18 @@ import {DateTimePicker} from '@material-ui/pickers'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-function PlateDatePicker() {
+function PlateDatePicker({setPickedDate}) {
   const [selectedDate, handleDateChange] = useState(new Date());
 
-  useEffect(() => {
-    console.log('selected date', selectedDate.toISOString())
-  }, [selectedDate])
+  const handleDates = (e) => {
+    handleDateChange(e)
+    setPickedDate(e)
+  }
 
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <DateTimePicker value={selectedDate} onChange={handleDateChange} />
+      <DateTimePicker value={selectedDate} onChange={(e) => handleDates(e)} />
     </MuiPickersUtilsProvider>
   )
 }

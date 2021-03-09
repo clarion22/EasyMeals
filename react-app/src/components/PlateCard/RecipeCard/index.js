@@ -11,7 +11,7 @@ function RecipeCard({i, foodGroup}) {
 
 
   useEffect(() => {
-    if (loaded === true) console.log('plates', plates)
+
   }, [loaded])
 
  useEffect(() => {
