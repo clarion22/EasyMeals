@@ -84,7 +84,8 @@ function PlateCard() {
                    R
                  </Avatar>
                 }
-                  title={plate.date}
+                  title={`Plate ${plate.id}`}
+                  subheader={plate.date}
                 />
                </Grid>
                <Grid item container direction="column" xs={6}>
