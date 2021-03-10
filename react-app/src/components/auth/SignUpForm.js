@@ -52,8 +52,8 @@ const SignUpForm = ({setOpen}) => {
   return (
     <form className='auth_form' onSubmit={onSignUp}>
       <div>
-        {errors.map((error) => (
-          <div>{error}</div>
+        {errors.map((error, i) => (
+          <div key={i}>{error}</div>
         ))}
       </div>
       <div>
