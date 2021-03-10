@@ -19,7 +19,11 @@ class Calendar(db.Model):
       "id": self.id,
       "title": self.title,
       "user_id": self.user_id,
-      "date": self.date,
+      "date": self.format_date,
       "plate_id": self.plate_id,
       "url": self.url,
     }
+
+  @property
+  def format_date(self):
+    return self.date.isoformat()

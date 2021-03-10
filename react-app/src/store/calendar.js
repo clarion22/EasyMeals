@@ -40,7 +40,7 @@ export const loadUserEvents = (userId) => async (dispatch) => {
       "Content-Type": "application/json",
     }
   })
-  const plateEvents = response.json();
+  const plateEvents = await response.json();
   dispatch(loadEvents(plateEvents))
   return plateEvents;
 }
