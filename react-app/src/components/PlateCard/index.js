@@ -47,19 +47,19 @@ function PlateCard() {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
-    dispatch(loadUserPlates(1))
+    dispatch(loadUserPlates(sessionUser.id))
   },[dispatch])
 
 
 
   const plates = useSelector(state => Object.values(state.plate))
-  const sessionUser = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
   const [pickedDate, setPickedDate] = useState(new Date());
   useEffect(() => {
-    if (plates && plates.length) setLoaded(true)
+    if (plates && plates.length && sessionUser && sessionUser.id) setLoaded(true)
    }, [plates.length])
 
    const handleDelete = (plateId) => {

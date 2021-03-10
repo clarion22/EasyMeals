@@ -30,11 +30,6 @@ function Calendar() {
     if (plateEvents.length) setLoaded(true)
   }, [plateEvents.length])
 
-  useEffect(() => {
-    if (plateEvents.length) console.log(plateEvents[0]['date'])
-  }, [loaded])
-
-   if (!loaded) return null;
 
   return (
     <div style={{height: '100%', bottom: 0, backgroundColor: '#f4fff8', display: 'flex'}}>
