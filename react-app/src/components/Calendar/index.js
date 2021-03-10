@@ -4,6 +4,7 @@ import {loadUserEvents} from '../../store/calendar';
 
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from '@fullcalendar/timegrid'
 import SideNavigation from '../SideNavigation';
 import './calendar.css'
 
@@ -41,9 +42,14 @@ function Calendar() {
       <div className="calendar_wrapper">
         <FullCalendar
           defaultView='dayGridMonth'
-          plugins={[dayGridPlugin]}
+          plugins={[dayGridPlugin, timeGridPlugin]}
           events={plateEvents}
           eventClick={handleClick}
+          headerToolbar={{
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            }}
         />
       </div>
     </div>
