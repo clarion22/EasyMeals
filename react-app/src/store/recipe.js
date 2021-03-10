@@ -59,7 +59,7 @@ const recipeReducer = (state = initialState, action) => {
       newState.selected[action.payload.food_group] = action.payload;
       return newState;
     case RESET_FOOD:
-      //write reset function here
+      newState.selected = {Protein: "", Fruit: "", Vegetables: "", Carbs: "", Dairy: ""}
       return newState;
     default:
       return state;
