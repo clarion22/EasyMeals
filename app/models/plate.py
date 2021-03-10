@@ -21,7 +21,7 @@ class Plate(db.Model):
   dairy = db.relationship("Recipe", foreign_keys='[Plate.dairy_id]')
   fruit = db.relationship("Recipe", foreign_keys='[Plate.fruit_id]')
   vegetables = db.relationship("Recipe", foreign_keys='[Plate.vegetables_id]')
-
+  calendar = db.relationship("Calendar", back_populates="plate")
 
   def to_dict(self):
     return {

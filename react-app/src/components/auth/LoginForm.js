@@ -46,7 +46,6 @@ const LoginForm = ({setOpen}) => {
         <input
           name="email"
           type="text"
-          placeholder="Email"
           value={email}
           onChange={updateEmail}
         />
@@ -56,12 +55,11 @@ const LoginForm = ({setOpen}) => {
         <input
           name="password"
           type="password"
-          placeholder="Password"
           value={password}
           onChange={updatePassword}
         />
         <div>
-        <button className="auth_btn" type="submit">Login</button>
+        <button className="auth_btn" type="submit">Log In</button>
         </div>
       </div>
     </form>

@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal'
 import LoginForm from '../auth/LoginForm'
 import SignUpForm from '../auth/SignUpForm'
 import LogoutButton from '../auth/LogoutButton'
-import { signUp } from '../../store/session';
+import {NavLink} from 'react-router-dom'
 import './authmodal.css'
 import {useSelector} from 'react-redux'
 

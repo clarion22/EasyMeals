@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Plate, Recipe
+from app.models import db, Plate, Recipe, Calendar
 
 plate_routes = Blueprint('plates', __name__)
 
@@ -31,3 +31,23 @@ def delete_plate(plate_id):
     db.session.delete(plate)
     db.session.commit()
     return plate.to_dict()
+
+@plate_routes.route('/calendar', methods=["POST"])
+def add_plate_event():
+    data = request.get_json()
+    calendar = Calendar(
+        title=data['title'],
+        user_id=data['user_id'],
+        date=data['date'],
+        plate_id=data['plate_id'],
+        url=data['url'],
+    )
+
+    db.session.add(calendar)
+    db.session.commit()
+    return calendar.to_dict()
+
+@plate_routes.route('/calendar/<int:user_id>')
+def load_events(user_id):
+    plateEvents = Calendar.query.filter_by(user_id=user_id).all()
+    return {plateEvent.id : plateEvent.to_dict() for plateEvent in plateEvents}

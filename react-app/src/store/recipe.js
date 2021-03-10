@@ -1,6 +1,6 @@
 const LOAD_RECIPES = "recipes/loadRecipes";
 const SELECT_FOOD = "recipes/selectFood"
-
+const RESET_FOOD = "recipes/resetFood"
 
 export const loadRecipes = (recipes) => {
   return {
@@ -13,6 +13,12 @@ export const selectFood = (recipe) => {
   return {
     type: SELECT_FOOD,
     payload: recipe
+  }
+}
+
+export const resetFood = () => {
+  return {
+    type: RESET_FOOD,
   }
 }
 
@@ -52,6 +58,8 @@ const recipeReducer = (state = initialState, action) => {
     case SELECT_FOOD:
       newState.selected[action.payload.food_group] = action.payload;
       return newState;
+    case RESET_FOOD:
+      newState.selected = {Protein: "", Fruit: "", Vegetables: "", Carbs: "", Dairy: ""}
       return newState;
     default:
       return state;

@@ -21,6 +21,12 @@ function CreatePlate() {
   useEffect(() => {
      dispatch(recipeActions.getRecipes())
   }, [dispatch])
+
+  const resetPlate = () => {
+    dispatch(recipeActions.resetFood())
+  }
+
+
   return (
     <div>
       <Grid container spacing={2}>
@@ -77,6 +83,7 @@ function CreatePlate() {
           <PlateSelect foodType={"dairy"}/>
           <PlateSelect foodType={"vegetables"}/>
           <PlateSelect foodType={"carbs"}/>
+          <button onClick={resetPlate}>Reset</button>
         </Grid>
       </Grid>
     </div>
