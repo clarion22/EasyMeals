@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '65vh',
     backgroundColor: '#a4ffb6',
     top: 0,
+    display: 'flex',
+    maxWidth: '100vw',
+    flexDirection: 'column'
   }
 }))
 
@@ -22,7 +25,7 @@ export default function Home () {
           <h2>Create nutritionally balanced meal plans to fit your lifestyle and fitness needs.</h2>
           <div className='getstarted_btn'><NavLink id="started_link" to={'/createplate'}>GET STARTED</NavLink></div>
         </div>
-        <DietSvg />
+          <DietSvg />
       </div>
       <div style={{height: '500px', backgroundColor: 'white'}} >
 
