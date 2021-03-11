@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux'
 import './auth.css'
 
 
-const LoginForm = ({setOpen}) => {
+const LoginForm = ({setAuthenticated, setOpen}) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
 
@@ -19,6 +19,7 @@ const LoginForm = ({setOpen}) => {
     const user = await dispatch(login(email, password));
     if (!user.errors) {
       setOpen(false)
+      setAuthenticated(true)
       return <Redirect to="/" />
     } else {
       setErrors(user.errors);

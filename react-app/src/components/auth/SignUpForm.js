@@ -4,7 +4,7 @@ import { signUp } from '../../store/session';
 import {useDispatch} from 'react-redux'
 import './auth.css'
 
-const SignUpForm = ({setOpen}) => {
+const SignUpForm = ({setAuthenticated, setOpen}) => {
   const dispatch = useDispatch()
 
   const [username, setUsername] = useState("");
@@ -20,6 +20,7 @@ const SignUpForm = ({setOpen}) => {
       const user = await dispatch(signUp(username, email, name, password));
       if (!user.errors) {
         setOpen(false)
+        setAuthenticated(true)
         return <Redirect to="/" />;
       } else {
         console.log('errors:', user.errors)

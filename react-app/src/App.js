@@ -12,7 +12,7 @@ import CreatePlate from './components/CreatePlate'
 import DashBoard from './components/DashBoard'
 import MyPlates from './components/MyPlates';
 import {authenticate} from './store/session';
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import Calendar from './components/Calendar';
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
     })();
   }, [dispatch]);
 
+
   if (!loaded) {
     return null;
   }
@@ -38,7 +39,7 @@ function App() {
   return (
     <BrowserRouter>
     <CssBaseline />
-      <NavBar />
+      <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
         <Route path="/createplate" exact={true}>
           <CreatePlate />

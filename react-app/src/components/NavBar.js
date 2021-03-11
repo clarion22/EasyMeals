@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const NavBar = () => {
+const NavBar = ({setAuthenticated}) => {
   const classes = useStyles()
   return (
     <nav className={classes.root}>
@@ -26,7 +26,7 @@ const NavBar = () => {
             <img src={Logo} style={{paddingLeft: '20px'}} />
           </NavLink>
       </div>
-      <AuthModal />
+      <AuthModal setAuthenticated={setAuthenticated}/>
     </nav>
   );
 }

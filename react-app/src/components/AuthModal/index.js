@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function AuthModal() {
+function AuthModal({setAuthenticated}) {
   const sessionUser = useSelector(state => state.session.user);
   const classes = useStyles();
 
@@ -44,7 +44,7 @@ function AuthModal() {
           <button id="login_btn" className={toggleLogin ? '' : 'inactive'} type='button' onClick={() => setToggleLogin(true)}>Log In</button>
           <button type='button' className={toggleLogin ? 'inactive' : ''} onClick={() => setToggleLogin(false)}>Sign Up</button>
       </div>
-      {toggleLogin ? <LoginForm setOpen={setOpen} /> : <SignUpForm setOpen={setOpen}/>}
+      {toggleLogin ? <LoginForm setOpen={setOpen} setAuthenticated={setAuthenticated} /> : <SignUpForm setAuthenticated={setAuthenticated} setOpen={setOpen}/>}
     </div>
   );
 
