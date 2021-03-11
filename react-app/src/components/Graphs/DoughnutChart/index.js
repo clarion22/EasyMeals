@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 
 function DoughnutChart() {
 const [chartData, setChartData] = useState({});
-const [calorieData, setCalorieData] = useState([0, 0, 0, 1, 1])
+const [calorieData, setCalorieData] = useState([0, 0, 1, 1, 0])
 const selectedProtein = useSelector(state => state.recipe.selected.Protein)
 const selectedVegetables = useSelector(state => state.recipe.selected.Vegetables)
 const selectedFruit = useSelector(state => state.recipe.selected.Fruit)
