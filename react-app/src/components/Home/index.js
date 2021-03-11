@@ -19,7 +19,7 @@ export default function Home () {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <div style={{display: 'flex', justifyContent: 'center'} }>
+      <div style={{display: 'flex', justifyContent: 'center', minHeight: '85vh'} }>
         <div style={{width: '500px', padding: '0 80px', height: '50em', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center'}} >
           <h1 style={{fontSize: '3em'}}>Easy Meals</h1>
           <h2>Create nutritionally balanced meal plans to fit your lifestyle and fitness needs.</h2>
