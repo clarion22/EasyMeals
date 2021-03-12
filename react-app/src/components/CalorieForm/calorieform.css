@@ -1,4 +1,4 @@
-.calorie_form input {
+.calorie_form  input:not([type="radio"]) {
   border: solid 1px rgba(138, 137, 137, 0.5);
   box-sizing: border-box;
   padding: 10px;
