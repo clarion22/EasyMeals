@@ -34,17 +34,17 @@ export default function Home () {
     // </div>
     <Grid container >
         <Grid item xs={1}>
-          <div style={{backgroundColor: '#a4ffb6', height: '85vh'}}></div>
+          <div style={{backgroundColor: '#a4ffb6', height: '90vh'}}></div>
         </Grid>
         <Grid item xs={3}>
-        <div style={{backgroundColor: '#a4ffb6', height: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center'}}>
+        <div style={{backgroundColor: '#a4ffb6', height: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center'}}>
             <span style={{fontSize: '2vw'}}>Easy Meals</span>
             <span>Create nutritionally balanced meal plans to fit your lifestyle and fitness needs.</span>
             <div className='getstarted_btn'><NavLink id="started_link" to={'/createplate'}>GET STARTED</NavLink></div>
         </div>
         </Grid>
         <Grid item xs={8}>
-        <div style={{backgroundColor: '#a4ffb6', height: '85vh'}}>
+        <div style={{backgroundColor: '#a4ffb6', height: '90vh'}}>
           <DietSvg />
         </div>
         </Grid>
