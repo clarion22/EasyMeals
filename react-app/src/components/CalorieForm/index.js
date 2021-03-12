@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import './calorieform.css'
+
 
 function CalorieForm({setRecommendation}) {
   const [gender, setGender] = useState('Female');
@@ -102,42 +104,50 @@ function CalorieForm({setRecommendation}) {
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <div>
+    <div className='form_wrapper'>
+      <form onSubmit={onSubmit} className='calorie_form'>
+        <div className="row_container">
           <label>I am</label>
+          <div>
           <label>Female</label>
           <input type='radio' value="Female"  checked={gender === "Female"} onChange={(e) => setGender(e.target.value)}></input>
           <label>Male</label>
           <input type='radio' value="Male"  checked={gender === "Male"} onChange={(e) => setGender(e.target.value)}></input>
+          </div>
         </div>
-        <div>
+        <div className="row_container">
           <label>Height</label>
           <input type="number" min="0" placeholder="ft" onChange={(e) => e.target.value < 0 ? setFeet(0) : setFeet(Number(e.target.value) * 12)}></input>
           <input type="number" min="0" placeholder="in" onChange={(e) => e.target.value < 0 ? setInches(0) : setInches(Number(e.target.value))}></input>
         </div>
-        <div>
+        <div className="row_container">
           <label>Weight</label>
           <input type='number' min="0" placeholder='ibs' onChange={(e) => e.target.value < 0 ? setWeight(0) : setWeight(Number(e.target.value))}></input>
         </div>
-        <div>
+        <div className="row_container">
           <label>Age</label>
           <input type='number' min="0" placeholder='years' onChange={(e) => e.target.value < 0 ? setAge(0) : setAge(Number(e.target.value))}></input>
         </div>
-        <div>
+        <div className="row_container">
+        <label>Activity</label>
         <select onChange={(e) => setActivity(e.target.value)}>
             {activityLevels.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
         </select>
         </div>
-        <button type='button' onClick={calorieEquation}>Calculate</button>
-        <div>
-        <label>Your own calories</label>
+        <div className='btn_wrapper'>
+          <button className="calorie_btn" type='button' onClick={calorieEquation}>Calculate</button>
+        </div>
+          <hr></hr>
+        <div className="row_container">
+        <label>Input calories</label>
         <input type='number' min="0" onChange={(e) => setTotalCal(Number(e.target.value))}></input>
       </div>
       <div>Total Cal {totalCal}</div>
-      <button type='submit'>Submit</button>
+      <div className='btn_wrapper'>
+        <button type='submit' className="calorie_btn">Submit</button>
+      </div>
       </form>
     </div>
   )
