@@ -12,3 +12,8 @@
   color: black;
   text-decoration: none;
 }
+
+.grid_container {
+  display: grid;
+  background-color: red;
+}

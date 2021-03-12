@@ -1,0 +1,13 @@
+.svg-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-height: 80vh;
+}
