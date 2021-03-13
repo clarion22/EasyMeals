@@ -48,10 +48,10 @@ function PlateSelect () {
 
   const rows = [
     createData('Protein', `${selectedProtein ?  selectedProtein.title : ""}`, `${selectedProtein ?  selectedProtein.calories : ""}`, 1),
-    createData('Fruits', `${selectedFruit ?  selectedFruit.title : ""}`, `${selectedFruit ?  selectedFruit.calories : ""}`, 4.3),
-    createData('Dairy', `${selectedDairy ?  selectedDairy.title : ""}`, `${selectedDairy ?  selectedDairy.calories : ""}`, 6.0),
-    createData('Vegetables', `${selectedVegetables ?  selectedVegetables.title : ""}`, `${selectedVegetables ?  selectedVegetables.calories : ""}`, 3.9),
-    createData('Carbs', `${selectedCarb ?  selectedCarb.title : ""}`, `${selectedCarb ?  selectedCarb.calories : ""}`, 4.3),
+    createData('Fruits', `${selectedFruit ?  selectedFruit.title : ""}`, `${selectedFruit ?  selectedFruit.calories : ""}`, 1),
+    createData('Dairy', `${selectedDairy ?  selectedDairy.title : ""}`, `${selectedDairy ?  selectedDairy.calories : ""}`, 1),
+    createData('Vegetables', `${selectedVegetables ?  selectedVegetables.title : ""}`, `${selectedVegetables ?  selectedVegetables.calories : ""}`, 1),
+    createData('Carbs', `${selectedCarb ?  selectedCarb.title : ""}`, `${selectedCarb ?  selectedCarb.calories : ""}`, 1),
   ];
   return (
     <>
