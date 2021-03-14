@@ -61,7 +61,7 @@ if (!loaded) {
               {filteredFood.map(recipe => (
                 <div id={recipe.id} key={recipe.id} style={{borderTop: 'solid 1px black'}} className="recipe_box" onClick={(e) => selectRecipe(e, recipe)}>
                   <div>{recipe.title}</div>
-                  <div>{recipe.cook_time}</div>
+                  <div>Cook time: {recipe.cook_time} min</div>
                   <div><img style={{height: '50px'}} src={recipe.img_link} alt='food' /></div>
                 </div>
               ))}

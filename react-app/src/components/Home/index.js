@@ -38,8 +38,8 @@ export default function Home () {
         </Grid>
         <Grid item xs={3}>
         <div style={{backgroundColor: '#a4ffb6', height: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center'}}>
-            <span style={{fontSize: '2vw'}}>Easy Meals</span>
-            <span>Create nutritionally balanced meal plans to fit your lifestyle and fitness needs.</span>
+            <span style={{fontSize: '3vw', fontWeight: 'bold'}}>Easy Meals</span>
+            <span style={{fontSize: '2vw'}}>Create nutritionally balanced meal plans to fit your lifestyle and fitness needs.</span>
             <div className='getstarted_btn'><NavLink id="started_link" to={'/createplate'}>GET STARTED</NavLink></div>
         </div>
         </Grid>
