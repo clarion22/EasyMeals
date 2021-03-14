@@ -69,15 +69,15 @@ def seed_recipes():
                      img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F4526283.jpg&w=596&h=596&c=sc&poi=face&q=85"
                      )
 
-    recipe7 = Recipe(title="Chicken Marsala",
+    recipe7 = Recipe(title="Fresh Shrimp Boil",
                     food_group="Protein",
                     amount=4,
                     unit="oz",
-                    calories=448,
-                    cook_time=20,
-                    flavor_type="Italy",
-                    food_category="Chicken",
-                    img_link=""
+                    calories=420,
+                    cook_time=5,
+                    flavor_type="American",
+                    food_category="Seafood",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F2202554.jpg"
     )
 
     recipe8 = Recipe(title="Chicken Marsala",

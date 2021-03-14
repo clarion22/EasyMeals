@@ -58,18 +58,20 @@ if (!loaded) {
           <Typography>{foodType.toUpperCase()}</Typography>
         </AccordionSummary>
           <AccordionDetails>
-            <form>
-              <label>Select a Protein Category</label>
+            <form className='recipe_form'>
               <select onChange={handleGroup}>
                 {recipes && Array.from(foodGroupLabels).map(foodCategory => (
                   <option value={foodCategory}>{foodCategory}</option>
                 ))}
               </select>
               {filteredFood.map(recipe => (
-                <div id={recipe.id} key={recipe.id} style={{borderTop: 'solid 1px black'}} className="recipe_box" onClick={(e) => selectRecipe(e, recipe)}>
-                  <div>{recipe.title}</div>
-                  <div>Cook time: {recipe.cook_time} min</div>
-                  <div><img style={{height: '50px'}} src={recipe.img_link} alt='food' /></div>
+                <div id={recipe.id} key={recipe.id} className="recipe_box" onClick={(e) => selectRecipe(e, recipe)}>
+                  <div className='recipebox_left'>
+                    <div id="recipe-title">{recipe.title}</div>
+                    <div>Cook time: {recipe.cook_time} min</div>
+                    <div>Calories: {recipe.calories}</div>
+                  </div>
+                  <div className="recipeimg_wrapper"><img src={recipe.img_link} alt='food' /></div>
                 </div>
               ))}
             </form>

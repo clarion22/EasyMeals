@@ -79,7 +79,7 @@ function PlateSelect () {
           </TableBody>
         </Table>
       </TableContainer>
-      {fullPlate && sessionUser ? <button onClick={savePlate} disabled={buttonDisable}>Save your Plate</button> : ""}
+      {fullPlate && sessionUser && !sessionUser.errors ? <button onClick={savePlate} disabled={buttonDisable}>Save your Plate</button> : ""}
     </>
   )
 }

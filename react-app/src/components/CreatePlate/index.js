@@ -28,7 +28,7 @@ function CreatePlate() {
 
 
   return (
-    <div>
+    <div style={{padding: '20px'}}>
       <Grid container spacing={2}>
         <Grid item container direction="column" xs={6}>
           <Paper style={{height: '400px'}} className="circle">
