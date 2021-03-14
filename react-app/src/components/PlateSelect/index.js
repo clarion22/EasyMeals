@@ -21,6 +21,13 @@ function PlateSelect({foodType}) {
       if (recipes) setFilteredFood(recipes.filter(recipe => recipe.food_category === group))
   }, [recipes, group]);
 
+  const foodGroupLabels = new Set();
+  if (recipes) {
+    Object.values(recipes).forEach(recipe => {
+      foodGroupLabels.add(recipe.food_category)
+    })
+  }
+
 
   const handleGroup = (e) => {
     setGroup(e.target.value)
@@ -54,8 +61,8 @@ if (!loaded) {
             <form>
               <label>Select a Protein Category</label>
               <select onChange={handleGroup}>
-                {recipes.map(recipe => (
-                  <option key={recipe.title} value={recipe.food_category}>{recipe.food_category}</option>
+                {recipes && Array.from(foodGroupLabels).map(foodCategory => (
+                  <option value={foodCategory}>{foodCategory}</option>
                 ))}
               </select>
               {filteredFood.map(recipe => (
