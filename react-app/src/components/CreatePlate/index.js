@@ -39,37 +39,37 @@ function CreatePlate() {
           <Grid container spacing={1}>
             <Grid item xs={6}>
               <Paper>
-                <h6>Fruit</h6>
-                <div>{recommendation.fruit.amount}</div>
-                <div>{recommendation.fruit.unit}</div>
+                <h3>Fruit</h3>
+                <div style={{fontSize: '28px'}}>{recommendation.fruit.amount}</div>
+                <div style={{fontSize: '28px'}}>{recommendation.fruit.unit}</div>
               </Paper>
             </Grid>
             <Grid item xs={6}>
             <Paper>
-              <h6>Carbs</h6>
-              <div>{recommendation.carbs.amount}</div>
-              <div>{recommendation.carbs.unit}</div>
+              <h3>Carbs</h3>
+              <div style={{fontSize: '28px'}}>{recommendation.carbs.amount}</div>
+              <div style={{fontSize: '28px'}}>{recommendation.carbs.unit}</div>
             </Paper>
             </Grid>
             <Grid item xs={6}>
               <Paper>
-                <h6>Protein</h6>
-                <div>{recommendation.protein.amount}</div>
-                <div>{recommendation.protein.unit}</div>
+                <h3>Protein</h3>
+                <div style={{fontSize: '28px'}}>{recommendation.protein.amount}</div>
+                <div style={{fontSize: '28px'}}>{recommendation.protein.unit}</div>
               </Paper>
             </Grid>
             <Grid item xs={6}>
             <Paper>
-              <h6>Vegetables</h6>
-              <div>{recommendation.vegetables.amount}</div>
-              <div>{recommendation.vegetables.unit}</div>
+              <h3>Vegetables</h3>
+              <div style={{fontSize: '28px'}}>{recommendation.vegetables.amount}</div>
+              <div style={{fontSize: '28px'}}>{recommendation.vegetables.unit}</div>
             </Paper>
             </Grid>
             <Grid item xs={6}>
               <Paper>
-                <h6>Dairy</h6>
-                <div>{recommendation.dairy.amount}</div>
-                <div>{recommendation.dairy.unit}</div>
+                <h3>Dairy</h3>
+                <div style={{fontSize: '28px'}}>{recommendation.dairy.amount}</div>
+                <div style={{fontSize: '28px'}}>{recommendation.dairy.unit}</div>
               </Paper>
             </Grid>
           </Grid>
