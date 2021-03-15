@@ -110,9 +110,9 @@ function CalorieForm({setRecommendation}) {
           <label>I am</label>
           <div>
           <label>Female</label>
-          <input type='radio' value="Female"  checked={gender === "Female"} onChange={(e) => setGender(e.target.value)}></input>
+          <input style={{margin: '0 8px'}} type='radio' value="Female"  checked={gender === "Female"} onChange={(e) => setGender(e.target.value)}></input>
           <label>Male</label>
-          <input type='radio' value="Male"  checked={gender === "Male"} onChange={(e) => setGender(e.target.value)}></input>
+          <input style={{margin: '0 8px'}} type='radio' value="Male"  checked={gender === "Male"} onChange={(e) => setGender(e.target.value)}></input>
           </div>
         </div>
         <div className="row_container">
