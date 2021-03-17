@@ -50,11 +50,9 @@ function PlateCard() {
   },[dispatch])
 
 
-
   const plates = useSelector(state => Object.values(state.plate.all))
   const [loaded, setLoaded] = useState(false);
   const [pickedDate, setPickedDate] = useState(new Date());
-  const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     if (plates && plates.length && sessionUser && sessionUser.id) setLoaded(true)
@@ -70,12 +68,10 @@ function PlateCard() {
    }
 
    const handleSavePlate = (plateId) => {
-      setSaved(true)
       dispatch(addPlateToFavorite(plateId))
    }
 
    const handleUnsavePlate = (plateId) => {
-     setSaved(false)
       dispatch(removePlateFavorite(plateId))
    }
 
@@ -83,6 +79,7 @@ function PlateCard() {
    useEffect(() => {
      console.log('picked date', pickedDate)
    }, [pickedDate])
+
 
 
    if (plates && plates.length === 0) return ""
