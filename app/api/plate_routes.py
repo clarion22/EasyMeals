@@ -25,12 +25,26 @@ def load_plates(user_id):
     plates = Plate.query.filter_by(user_id=user_id).all()
     return { plate.id: plate.to_join() for plate in plates}
 
-@plate_routes.route('/user/<int:plate_id>', methods={"DELETE"})
+@plate_routes.route('/user/favorite/<int:user_id>')
+def load_favorites(user_id):
+    plates = Plate.query.filter_by(user_id=user_id, favorite=True).all()
+    return { plate.id: plate.to_join() for plate in plates}
+
+@plate_routes.route('/user/<int:plate_id>', methods=["DELETE"])
 def delete_plate(plate_id):
     plate = Plate.query.filter_by(id=plate_id).first()
     db.session.delete(plate)
     db.session.commit()
     return plate.to_dict()
+
+@plate_routes.route('/user/<int:plate_id>', methods=["PATCH"])
+def favorite_plate(plate_id):
+    plate = Plate.query.filter_by(id=plate_id).first()
+    if plate:
+        plate.favorite = True
+    db.session.add(plate)
+    db.session.commit()
+    return plate.to_join()
 
 @plate_routes.route('/calendar', methods=["POST"])
 def add_plate_event():

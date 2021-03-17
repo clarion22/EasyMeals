@@ -5,17 +5,13 @@ import {useSelector, useDispatch} from 'react-redux';
 import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
-import {loadUserPlates, deletePlate, addPlateToFavorite} from '../../store/plate'
+import {loadUserFavoritePlates, deletePlate, addPlateToFavorite} from './../../../store/plate'
 import Grid from '@material-ui/core/Grid';
-import RecipeCard from './RecipeCard';
-import PlateDatePicker from '../PlateDatePicker';
-import {addPlateToCalendar} from '../../store/calendar';
+import FavRecipeCard from '../FavRecipeCard'
+import PlateDatePicker from './../../PlateDatePicker';
+import {addPlateToCalendar} from './../../../store/calendar'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import './platecard.css'
-const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'
-
-
 
 const useStyles = makeStyles({
   root: {
@@ -38,24 +34,22 @@ const useStyles = makeStyles({
   }
 });
 
+function FavoriteCard() {
 
-function PlateCard() {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
-    dispatch(loadUserPlates(sessionUser.id))
+    dispatch(loadUserFavoritePlates(sessionUser.id))
   },[dispatch])
 
 
 
-  const plates = useSelector(state => Object.values(state.plate.all))
+  const plates = useSelector(state => Object.values(state.plate.favorite))
   const [loaded, setLoaded] = useState(false);
   const [pickedDate, setPickedDate] = useState(new Date());
-  const [saved, setSaved] = useState(false);
-
   useEffect(() => {
     if (plates && plates.length && sessionUser && sessionUser.id) setLoaded(true)
     console.log('all plates after selector', plates)
@@ -70,13 +64,7 @@ function PlateCard() {
    }
 
    const handleSavePlate = (plateId) => {
-      setSaved(true)
       dispatch(addPlateToFavorite(plateId))
-   }
-
-   const handleUnsavePlate = (plateId) => {
-     setSaved(false)
-      //future unsave thunk here
    }
 
 
@@ -110,19 +98,16 @@ function PlateCard() {
                 />
                </Grid>
                <Grid item container direction="column" xs={6}>
-                     <RecipeCard i={i} foodGroup={'carbs'}/>
-                     <RecipeCard i={i} foodGroup={'protein'}/>
-                     <RecipeCard i={i} foodGroup={'fruit'}/>
+                     <FavRecipeCard i={i} foodGroup={'carbs'}/>
+                     <FavRecipeCard i={i} foodGroup={'protein'}/>
+                     <FavRecipeCard i={i} foodGroup={'fruit'}/>
                </Grid>
                <Grid item container direction="column" xs={6}>
-                     <RecipeCard i={i} foodGroup={'vegetables'}/>
-                     <RecipeCard i={i} foodGroup={'dairy'}/>
+                     <FavRecipeCard i={i} foodGroup={'vegetables'}/>
+                     <FavRecipeCard i={i} foodGroup={'dairy'}/>
                      <PlateDatePicker setPickedDate={setPickedDate} />
                      <button onClick={() => addToCalendar(plate)}>Add to calendar</button>
-                     {plate.favorite || saved ?
-                     <a className="fav_btn" onClick={() =>  handleUnsavePlate(plate.id)}>{<FavoriteIcon />}</a> :
-                     <a className="fav_btn" onClick={() =>  handleSavePlate(plate.id)}>{<FavoriteBorderIcon />}</a>
-                    }
+                     <a className="fav_btn" onClick={() =>  handleSavePlate(plate.id)}>{plate.favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}</a>
                      <button style={{marginTop: '50px'}} onClick={() => handleDelete(plate.id)} >Delete</button>
                </Grid>
         </Grid>
@@ -132,4 +117,4 @@ function PlateCard() {
   )
 }
 
-export default PlateCard;
+export default FavoriteCard
