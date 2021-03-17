@@ -39,9 +39,10 @@ def delete_plate(plate_id):
 
 @plate_routes.route('/user/<int:plate_id>', methods=["PATCH"])
 def favorite_plate(plate_id):
+    data = request.get_json()
     plate = Plate.query.filter_by(id=plate_id).first()
     if plate:
-        plate.favorite = True
+        plate.favorite = data["favorite"]
     db.session.add(plate)
     db.session.commit()
     return plate.to_join()

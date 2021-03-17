@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
-import {loadUserFavoritePlates, deletePlate, addPlateToFavorite} from './../../../store/plate'
+import {loadUserFavoritePlates, deletePlate, addPlateToFavorite, removePlateFavorite} from './../../../store/plate'
 import Grid from '@material-ui/core/Grid';
 import FavRecipeCard from '../FavRecipeCard'
 import PlateDatePicker from './../../PlateDatePicker';
@@ -67,6 +67,10 @@ function FavoriteCard() {
       dispatch(addPlateToFavorite(plateId))
    }
 
+   const handleUnsavePlate = (plateId) => {
+    dispatch(removePlateFavorite(plateId))
+  }
+
 
    useEffect(() => {
      console.log('picked date', pickedDate)
@@ -107,7 +111,7 @@ function FavoriteCard() {
                      <FavRecipeCard i={i} foodGroup={'dairy'}/>
                      <PlateDatePicker setPickedDate={setPickedDate} />
                      <button onClick={() => addToCalendar(plate)}>Add to calendar</button>
-                     <a className="fav_btn" onClick={() =>  handleSavePlate(plate.id)}>{plate.favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}</a>
+                     <a className="fav_btn" onClick={() =>  handleUnsavePlate(plate.id)}>{<FavoriteIcon />}</a>
                      <button style={{marginTop: '50px'}} onClick={() => handleDelete(plate.id)} >Delete</button>
                </Grid>
         </Grid>

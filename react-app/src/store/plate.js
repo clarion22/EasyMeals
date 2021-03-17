@@ -3,6 +3,7 @@ const LOAD_PLATES = "plate/loadPlates";
 const REMOVE_PLATE = "plate/removePlate";
 const FAVORITE_PLATE = "plate/favoritePlate";
 const LOAD_FAVORITES = "plate/loadFavoritePlates"
+const UNFAVORITE_PLATE = "plate/unfavoritePlate";
 
 export const savePlate= (plate) => {
   return {
@@ -36,6 +37,13 @@ export const loadFavoritePlates = (plates) => {
   return {
     type: LOAD_FAVORITES,
     payload: plates
+  }
+}
+
+export const unfavoritePlate = (plate) => {
+  return {
+    type: UNFAVORITE_PLATE,
+    payload: plate
   }
 }
 
@@ -89,10 +97,27 @@ export const addPlateToFavorite = (plateId) => async (dispatch) => {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-    }
+    },
+    body: JSON.stringify({
+      favorite: true
+    })
   })
   const plate = await response.json();
   dispatch(favoritePlate(plate))
+  return plate;
+}
+export const removePlateFavorite = (plateId) => async (dispatch) => {
+  const response = await fetch(`/api/plates/user/${plateId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      favorite: false
+    })
+  })
+  const plate = await response.json();
+  dispatch(unfavoritePlate(plate))
   return plate;
 }
 
@@ -126,6 +151,9 @@ const plateReducer = (state = { all: {}, favorite: {}}, action) => {
       return newState;
     case LOAD_FAVORITES:
       newState.favorite = action.payload;
+      return newState;
+    case UNFAVORITE_PLATE:
+      delete newState.favorite[action.payload.id]
       return newState;
     default:
       return state;

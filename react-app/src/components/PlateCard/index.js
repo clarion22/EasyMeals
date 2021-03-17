@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
-import {loadUserPlates, deletePlate, addPlateToFavorite} from '../../store/plate'
+import {loadUserPlates, deletePlate, addPlateToFavorite, removePlateFavorite} from '../../store/plate'
 import Grid from '@material-ui/core/Grid';
 import RecipeCard from './RecipeCard';
 import PlateDatePicker from '../PlateDatePicker';
@@ -76,7 +76,7 @@ function PlateCard() {
 
    const handleUnsavePlate = (plateId) => {
      setSaved(false)
-      //future unsave thunk here
+      dispatch(removePlateFavorite(plateId))
    }
 
 
@@ -119,7 +119,7 @@ function PlateCard() {
                      <RecipeCard i={i} foodGroup={'dairy'}/>
                      <PlateDatePicker setPickedDate={setPickedDate} />
                      <button onClick={() => addToCalendar(plate)}>Add to calendar</button>
-                     {plate.favorite || saved ?
+                     {plate.favorite ?
                      <a className="fav_btn" onClick={() =>  handleUnsavePlate(plate.id)}>{<FavoriteIcon />}</a> :
                      <a className="fav_btn" onClick={() =>  handleSavePlate(plate.id)}>{<FavoriteBorderIcon />}</a>
                     }
