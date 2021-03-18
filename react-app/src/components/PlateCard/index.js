@@ -12,6 +12,8 @@ import PlateDatePicker from '../PlateDatePicker';
 import {addPlateToCalendar} from '../../store/calendar';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavButton from '../FavButton'
+import UnfavButton from '../UnfavButton'
 import './platecard.css'
 const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'
 
@@ -53,6 +55,7 @@ function PlateCard() {
   const plates = useSelector(state => Object.values(state.plate.all))
   const [loaded, setLoaded] = useState(false);
   const [pickedDate, setPickedDate] = useState(new Date());
+
 
   useEffect(() => {
     if (plates && plates.length && sessionUser && sessionUser.id) setLoaded(true)
@@ -116,10 +119,7 @@ function PlateCard() {
                      <RecipeCard i={plate.id} foodGroup={'dairy'}/>
                      <PlateDatePicker setPickedDate={setPickedDate} />
                      <button onClick={() => addToCalendar(plate)}>Add to calendar</button>
-                     {plate.favorite ?
-                     <a className="fav_btn" onClick={() =>  handleUnsavePlate(plate.id)}>{<FavoriteIcon />}</a> :
-                     <a className="fav_btn" onClick={() =>  handleSavePlate(plate.id)}>{<FavoriteBorderIcon />}</a>
-                    }
+                     <FavButton  plateId={plate.id} favorite={plate.favorite}/>
                      <button style={{marginTop: '50px'}} onClick={() => handleDelete(plate.id)} >Delete</button>
                </Grid>
         </Grid>
