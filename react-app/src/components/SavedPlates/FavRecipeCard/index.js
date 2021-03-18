@@ -4,9 +4,9 @@ import {useSelector, useDispatch} from 'react-redux';
 import {loadUserPlates} from './../../../store/plate';
 
 
-function RecipeCard({i, foodGroup}) {
+function FavRecipeCard({i, foodGroup}) {
 
-  const plates = useSelector(state => state.plate.all)
+  const plates = useSelector(state => state.plate.favorite)
   const [loaded, setLoaded] = useState(false);
 
 
@@ -16,7 +16,7 @@ function RecipeCard({i, foodGroup}) {
   }, [loaded])
 
  useEffect(() => {
-  if (plates && plates[i][foodGroup]) setLoaded(true)
+  if (plates &&  plates[i][foodGroup]) setLoaded(true)
  }, [plates])
 
  if (!loaded) {
@@ -43,4 +43,4 @@ function RecipeCard({i, foodGroup}) {
   )
 }
 
-export default RecipeCard
+export default FavRecipeCard

@@ -14,6 +14,7 @@ import MyPlates from './components/MyPlates';
 import {authenticate} from './store/session';
 import {useDispatch, useSelector} from 'react-redux'
 import Calendar from './components/Calendar';
+import SavedPlates from './components/SavedPlates'
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/profile/plates" exact={true} authenticated={authenticated}>
           <MyPlates />
+        </ProtectedRoute>
+        <ProtectedRoute path="/profile/favorite-plates" exact={true} authenticated={authenticated}>
+          <SavedPlates />
         </ProtectedRoute>
         <ProtectedRoute path="/profile/calendar" exact={true} authenticated={authenticated}>
           <Calendar />

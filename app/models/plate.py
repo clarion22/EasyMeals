@@ -14,6 +14,7 @@ class Plate(db.Model):
   dairy_id = db.Column(db.Integer, db.ForeignKey("recipes.id"), nullable = False)
   serving = db.Column(db.Float, default=1, nullable = False)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable =False)
+  favorite = db.Column(db.Boolean, default=False, nullable=False)
 
   user = db.relationship("User", back_populates="plate")
   protein = db.relationship("Recipe", foreign_keys='[Plate.protein_id]')
@@ -34,6 +35,7 @@ class Plate(db.Model):
       "dairy_id": self.dairy_id,
       "serving": self.serving,
       "user_id": self.user_id,
+      "favorite": self.favorite,
     }
 
   def to_join(self):
@@ -97,4 +99,5 @@ class Plate(db.Model):
       }],
       "serving": self.serving,
       "user_id": self.user_id,
+      "favorite": self.favorite,
     }

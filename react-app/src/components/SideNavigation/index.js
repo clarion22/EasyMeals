@@ -5,6 +5,7 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 import EmojiFoodBeverageIcon from '@material-ui/icons/EmojiFoodBeverage';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 function SideNavigation() {
   return (
@@ -16,6 +17,7 @@ function SideNavigation() {
       <ul>
         <li><AssessmentIcon /><NavLink to="/profile/dashboard" className='nav_link'>Dashboard</NavLink></li>
         <li><EmojiFoodBeverageIcon /><NavLink to="/profile/plates" className='nav_link'>My Plates</NavLink></li>
+        <li><FavoriteIcon /><NavLink to="/profile/favorite-plates" className='nav_link'>Favorites</NavLink></li>
         <li><EventNoteIcon /><NavLink to="/profile/calendar" className='nav_link'>Calendar</NavLink></li>
       </ul>
     </div>
