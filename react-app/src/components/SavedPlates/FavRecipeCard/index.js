@@ -6,7 +6,7 @@ import {loadUserPlates} from './../../../store/plate';
 
 function FavRecipeCard({i, foodGroup}) {
 
-  const plates = useSelector(state => Object.values(state.plate.favorite))
+  const plates = useSelector(state => state.plate.favorite)
   const [loaded, setLoaded] = useState(false);
 
 
@@ -16,8 +16,8 @@ function FavRecipeCard({i, foodGroup}) {
   }, [loaded])
 
  useEffect(() => {
-  if (plates && plates.length && plates[i][foodGroup]) setLoaded(true)
- }, [plates.length])
+  if (plates &&  plates[i][foodGroup]) setLoaded(true)
+ }, [plates])
 
  if (!loaded) {
    return (

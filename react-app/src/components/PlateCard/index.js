@@ -107,13 +107,13 @@ function PlateCard() {
                 />
                </Grid>
                <Grid item container direction="column" xs={6}>
-                     <RecipeCard i={i} foodGroup={'carbs'}/>
-                     <RecipeCard i={i} foodGroup={'protein'}/>
-                     <RecipeCard i={i} foodGroup={'fruit'}/>
+                     <RecipeCard i={plate.id} foodGroup={'carbs'}/>
+                     <RecipeCard i={plate.id} foodGroup={'protein'}/>
+                     <RecipeCard i={plate.id} foodGroup={'fruit'}/>
                </Grid>
                <Grid item container direction="column" xs={6}>
-                     <RecipeCard i={i} foodGroup={'vegetables'}/>
-                     <RecipeCard i={i} foodGroup={'dairy'}/>
+                     <RecipeCard i={plate.id} foodGroup={'vegetables'}/>
+                     <RecipeCard i={plate.id} foodGroup={'dairy'}/>
                      <PlateDatePicker setPickedDate={setPickedDate} />
                      <button onClick={() => addToCalendar(plate)}>Add to calendar</button>
                      {plate.favorite ?

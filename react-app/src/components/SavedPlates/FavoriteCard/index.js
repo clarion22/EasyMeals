@@ -102,13 +102,13 @@ function FavoriteCard() {
                 />
                </Grid>
                <Grid item container direction="column" xs={6}>
-                     <FavRecipeCard i={i} foodGroup={'carbs'}/>
-                     <FavRecipeCard i={i} foodGroup={'protein'}/>
-                     <FavRecipeCard i={i} foodGroup={'fruit'}/>
+                     <FavRecipeCard i={plate.id} foodGroup={'carbs'}/>
+                     <FavRecipeCard i={plate.id} foodGroup={'protein'}/>
+                     <FavRecipeCard i={plate.id} foodGroup={'fruit'}/>
                </Grid>
                <Grid item container direction="column" xs={6}>
-                     <FavRecipeCard i={i} foodGroup={'vegetables'}/>
-                     <FavRecipeCard i={i} foodGroup={'dairy'}/>
+                     <FavRecipeCard i={plate.id} foodGroup={'vegetables'}/>
+                     <FavRecipeCard i={plate.id} foodGroup={'dairy'}/>
                      <PlateDatePicker setPickedDate={setPickedDate} />
                      <button onClick={() => addToCalendar(plate)}>Add to calendar</button>
                      <a className="fav_btn" onClick={() =>  handleUnsavePlate(plate.id)}>{<FavoriteIcon />}</a>

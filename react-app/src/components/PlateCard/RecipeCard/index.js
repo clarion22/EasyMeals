@@ -6,7 +6,7 @@ import {loadUserPlates} from './../../../store/plate';
 
 function RecipeCard({i, foodGroup}) {
 
-  const plates = useSelector(state => Object.values(state.plate.all))
+  const plates = useSelector(state => state.plate.all)
   const [loaded, setLoaded] = useState(false);
 
 
@@ -16,8 +16,8 @@ function RecipeCard({i, foodGroup}) {
   }, [loaded])
 
  useEffect(() => {
-  if (plates && plates.length && plates[i][foodGroup]) setLoaded(true)
- }, [plates.length])
+  if (plates && plates[i][foodGroup]) setLoaded(true)
+ }, [plates])
 
  if (!loaded) {
    return (
