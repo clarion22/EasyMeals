@@ -13,7 +13,6 @@ import {addPlateToCalendar} from '../../store/calendar';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavButton from '../FavButton'
-import UnfavButton from '../UnfavButton'
 import './platecard.css'
 const imageUrl = 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'
 

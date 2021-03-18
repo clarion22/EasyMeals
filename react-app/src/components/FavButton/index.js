@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {addPlateToFavorite, removePlateFavorite} from '../../store/plate'
 
-function FavButton({plateId}) {
+function FavButton({plateId, favorite}) {
   const dispatch = useDispatch()
-  const [toggleSave, setToggleSave] = useState(false)
+  const [toggleSave, setToggleSave] = useState(favorite)
 
 
   const handleSavePlate = (plateId) => {
@@ -18,6 +18,9 @@ function FavButton({plateId}) {
     setToggleSave(false)
     dispatch(removePlateFavorite(plateId))
  }
+
+ useEffect(() => {}, [toggleSave])
+
   return (
     <div>
       {toggleSave ? <a onClick={() => handleUnsavePlate(plateId)}><FavoriteIcon /></a> :
