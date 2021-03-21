@@ -23,9 +23,8 @@ const useStyles = makeStyles({
     maxWidth: 620,
     boxShadow: "5px 3px 11px 1px rgba(0,0,0,0.5)",
     marginTop: 50,
-    paddingBottom: 10,
     boxSizing: 'border-box',
-    padding: 15
+    padding: 25
   },
   media: {
     height: 140,

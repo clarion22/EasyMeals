@@ -75,7 +75,7 @@ function CalorieForm({setRecommendation}) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
           break;
         } else if (age >=14 && age <= 18) {
-          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          recommendedSetter(recommended, 1.5, "cups", 3, "cups", 3, "oz", 3, "cups", 5, "oz")
           break;
         } else if  (age >= 10 && age <= 31) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")

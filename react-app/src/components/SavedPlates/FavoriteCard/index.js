@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import { green } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
-import {loadUserFavoritePlates, deletePlate, addPlateToFavorite, removePlateFavorite} from './../../../store/plate'
+import {loadUserFavoritePlates, deletePlate, addPlateToFavorite, removePlateFavorite, loadUserPlates} from './../../../store/plate'
 import Grid from '@material-ui/core/Grid';
 import FavRecipeCard from '../FavRecipeCard'
 import PlateDatePicker from './../../PlateDatePicker';
@@ -18,9 +18,8 @@ const useStyles = makeStyles({
     maxWidth: 620,
     boxShadow: "5px 3px 11px 1px rgba(0,0,0,0.5)",
     marginTop: 50,
-    paddingBottom: 10,
     boxSizing: 'border-box',
-    padding: 15
+    padding: 25
   },
   media: {
     height: 140,
@@ -69,6 +68,7 @@ function FavoriteCard() {
 
    const handleUnsavePlate = (plateId) => {
     dispatch(removePlateFavorite(plateId))
+    dispatch(loadUserPlates(sessionUser.id))
   }
 
 
