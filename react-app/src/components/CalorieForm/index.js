@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './calorieform.css'
 
 
-function CalorieForm({setRecommendation}) {
+function CalorieForm({setTotalCals, setRecommendation}) {
   const [gender, setGender] = useState('Female');
   const [feet, setFeet] = useState(0);
   const [inches, setInches] = useState(0);
@@ -31,7 +31,7 @@ function CalorieForm({setRecommendation}) {
       bmr = (4.536 * weight) + (15.88 * height) - (5 * age) - 161
     }
     totalCalories = bmr * multiplier[activity]
-    totalCalories > 0 ? setTotalCal(Math.round(totalCalories)) : setTotalCal(0)
+    totalCalories > 0 ? setTotalCals(Math.round(totalCalories)) : setTotalCal(0)
   }
 
   const recommendedSetter = (foodObj={}, fruitAmt, fruitUnit, vegAmount, vegUnit, carbAmnt, carbUnit, dairyAmnt, dairyUnit, proteinAmnt, proteinUnit) => (
