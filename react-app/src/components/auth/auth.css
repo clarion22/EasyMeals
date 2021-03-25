@@ -35,3 +35,15 @@
 .auth_btn:hover {
   background-color: #fdce82;
 }
+
+.login_seperator h4 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+}
+
+.login_seperator h4 span {
+  background:#f5f5f5;
+  padding:0 10px;
+}

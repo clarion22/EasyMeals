@@ -29,7 +29,7 @@ function RecipeCard({i, foodGroup}) {
     <>
       <Typography variant='h5'>{plates[i][foodGroup][0]['title']}</Typography>
          < div style={{ display: 'flex'}}>
-             <img style={{ height: '120px', width: '120px'}} src={plates[i][foodGroup][0]['img_link']} alt="the plete" />
+             <img style={{ height: '120px', width: '120px', marginRight: '10px'}} src={plates[i][foodGroup][0]['img_link']} alt="the plete" />
              <div style={{padding: "2px", width: '100%'}}>
               <Typography>
                 Cook Time: {plates[i][foodGroup][0]['cook_time']}

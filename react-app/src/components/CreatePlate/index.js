@@ -7,13 +7,14 @@ import CalorieForm from '../CalorieForm';
 import PlateSelect from '../PlateSelect'
 import PlateTable from '../PlateTable'
 import DoughnutChart from '../Graphs/DoughnutChart';
+import CalorieGraph from '../Graphs/CalorieGraph';
 import './createplate.css'
 
 function CreatePlate() {
   const dispatch = useDispatch()
   const recipes = useSelector(state => state.recipes)
-  const [recommendation, setRecommendation] = useState({fruit: {amount: 0, unit: "cups"}, dairy: {amount: 0, unit: ""},  vegetables: {amount: 0, unit: ""}, carbs: {amount: 0, unit: ""}, protein: {amount: 0, unit: ""}})
-
+  const [recommendation, setRecommendation] = useState({fruit: {amount: 0, unit: "cups"}, dairy: {amount: 0, unit: "cups"},  vegetables: {amount: 0, unit: "cups"}, carbs: {amount: 0, unit: "oz"}, protein: {amount: 0, unit: "oz"}})
+  const [totalCals, setTotalCals] = useState(0)
   useEffect(() => {
     console.log(recommendation)
   }, [recommendation])
@@ -31,7 +32,7 @@ function CreatePlate() {
     <div style={{padding: '20px'}}>
       <Grid container spacing={2}>
         <Grid item container direction="column" xs={6}>
-          <Paper style={{height: '400px'}} className="circle">
+          <Paper style={{height: '400px', display: 'flex', justifyContent: 'space-around'}} className="circle">
             {/* <span className="dot"></span> */}
             <DoughnutChart />
           </Paper>
@@ -39,9 +40,8 @@ function CreatePlate() {
           <Grid container spacing={1}>
             <Grid item xs={6}>
               <Paper>
-                <h3>Fruit</h3>
-                <div style={{fontSize: '28px'}}>{recommendation.fruit.amount}</div>
-                <div style={{fontSize: '28px'}}>{recommendation.fruit.unit}</div>
+                <h3>Calories</h3>
+                <div style={{fontSize: '28px'}}>{totalCals}</div>
               </Paper>
             </Grid>
             <Grid item xs={6}>
@@ -72,11 +72,18 @@ function CreatePlate() {
                 <div style={{fontSize: '28px'}}>{recommendation.dairy.unit}</div>
               </Paper>
             </Grid>
+            <Grid item xs={6}>
+              <Paper>
+                <h3>Dairy</h3>
+                <div style={{fontSize: '28px'}}>{recommendation.dairy.amount}</div>
+                <div style={{fontSize: '28px'}}>{recommendation.dairy.unit}</div>
+              </Paper>
+            </Grid>
           </Grid>
         </Grid>
         <Grid item container direction="column" xs={6}>
           <Paper>
-             <CalorieForm setRecommendation={setRecommendation} />
+             <CalorieForm setTotalCals={setTotalCals} setRecommendation={setRecommendation} />
           </Paper>
           <PlateSelect foodType={"protein"}/>
           <PlateSelect foodType={"fruit"}/>

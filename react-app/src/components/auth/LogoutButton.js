@@ -13,7 +13,7 @@ const LogoutButton = ({setAuthenticated}) => {
 
   return (
   <>
-    <NavLink style={{margin: 'auto 5px', color: 'black', fontSize: '18px'}} to="/profile/dashboard">Profile</NavLink>
+    <NavLink style={{margin: 'auto 5px', color: 'black', fontSize: '18px'}} to="/profile/plates">Profile</NavLink>
     <button className="login_btn" onClick={onLogout}>Logout</button>;
   </>
   )

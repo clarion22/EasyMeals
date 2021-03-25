@@ -6,7 +6,7 @@ import {addPlateToFavorite, removePlateFavorite} from '../../store/plate'
 
 function FavButton({plateId, favorite}) {
   const dispatch = useDispatch()
-  const [toggleSave, setToggleSave] = useState(favorite)
+  const [toggleSave, setToggleSave] = useState(false)
 
 
   const handleSavePlate = (plateId) => {
@@ -23,7 +23,7 @@ function FavButton({plateId, favorite}) {
 
   return (
     <div>
-      {toggleSave ? <a onClick={() => handleUnsavePlate(plateId)}><FavoriteIcon /></a> :
+      {toggleSave  || favorite ? <a onClick={() => handleUnsavePlate(plateId)}><FavoriteIcon /></a> :
       <a onClick={() => handleSavePlate(plateId)}><FavoriteBorderIcon /></a>}
     </div>
   )

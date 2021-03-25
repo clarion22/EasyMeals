@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './calorieform.css'
 
 
-function CalorieForm({setRecommendation}) {
+function CalorieForm({setTotalCals, setRecommendation}) {
   const [gender, setGender] = useState('Female');
   const [feet, setFeet] = useState(0);
   const [inches, setInches] = useState(0);
@@ -31,7 +31,7 @@ function CalorieForm({setRecommendation}) {
       bmr = (4.536 * weight) + (15.88 * height) - (5 * age) - 161
     }
     totalCalories = bmr * multiplier[activity]
-    totalCalories > 0 ? setTotalCal(Math.round(totalCalories)) : setTotalCal(0)
+    totalCalories > 0 ? setTotalCals(Math.round(totalCalories)) : setTotalCal(0)
   }
 
   const recommendedSetter = (foodObj={}, fruitAmt, fruitUnit, vegAmount, vegUnit, carbAmnt, carbUnit, dairyAmnt, dairyUnit, proteinAmnt, proteinUnit) => (
@@ -75,7 +75,7 @@ function CalorieForm({setRecommendation}) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
           break;
         } else if (age >=14 && age <= 18) {
-          recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
+          recommendedSetter(recommended, 1.5, "cups", 3, "cups", 3, "oz", 3, "cups", 5, "oz")
           break;
         } else if  (age >= 10 && age <= 31) {
           recommendedSetter(recommended, 1.5, "cups", 2, "cups", 5, "oz", 3, "cups", 5, "oz")
@@ -142,9 +142,8 @@ function CalorieForm({setRecommendation}) {
           <hr></hr>
         <div className="row_container">
         <label>Input calories</label>
-        <input type='number' min="0" onChange={(e) => setTotalCal(Number(e.target.value))}></input>
+        <input type='number' min="0" onChange={(e) => setTotalCals(Number(e.target.value))}></input>
       </div>
-      <div>Total Cal {totalCal}</div>
       <div className='btn_wrapper'>
         <button type='submit' className="calorie_btn">Submit</button>
       </div>
