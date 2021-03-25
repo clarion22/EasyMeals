@@ -40,9 +40,8 @@ function CreatePlate() {
           <Grid container spacing={1}>
             <Grid item xs={6}>
               <Paper>
-                <h3>Fruit</h3>
-                <div style={{fontSize: '28px'}}>{recommendation.fruit.amount}</div>
-                <div style={{fontSize: '28px'}}>{recommendation.fruit.unit}</div>
+                <h3>Calories</h3>
+                <div style={{fontSize: '28px'}}>{totalCals}</div>
               </Paper>
             </Grid>
             <Grid item xs={6}>

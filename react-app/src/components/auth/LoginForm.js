@@ -14,8 +14,12 @@ const LoginForm = ({setAuthenticated, setOpen}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onLogin = async (e) => {
+  const onLogin = async (e, demo) => {
     e.preventDefault();
+    if (demo) {
+      setEmail('demo@aa.io')
+      setPassword('password')
+    }
     const user = await dispatch(login(email, password));
     if (!user.errors) {
       setOpen(false)
@@ -61,6 +65,10 @@ const LoginForm = ({setAuthenticated, setOpen}) => {
         />
         <div>
         <button className="auth_btn" type="submit">Log In</button>
+        <div className="login_seperator">
+          <h4><span>or</span></h4>
+        </div>
+        <button className="auth_btn" type="submit" onClick={(e) => onLogin(e, true)}>Demo</button>
         </div>
       </div>
     </form>

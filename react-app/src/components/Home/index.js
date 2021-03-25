@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import {NavLink} from 'react-router-dom'
 import DietSvg from './Images/DietSvg'
 import Grid from '@material-ui/core/Grid';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import LanguageIcon from '@material-ui/icons/Language';
 import './home.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -19,19 +22,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Home () {
   const classes = useStyles()
   return (
-    // <div className={classes.root}>
-    //   <div style={{display: 'flex', justifyContent: 'center', minHeight: '85vh'} }>
-    //     <div style={{width: '500px', padding: '0 80px', height: '50em', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center'}} >
-    //       <h1 style={{fontSize: '3em'}}>Easy Meals</h1>
-    //       <h2>Create nutritionally balanced meal plans to fit your lifestyle and fitness needs.</h2>
-    //       <div className='getstarted_btn'><NavLink id="started_link" to={'/createplate'}>GET STARTED</NavLink></div>
-    //     </div>
-    //       <DietSvg />
-    //   </div>
-    //   <div style={{height: '500px', backgroundColor: 'white'}} >
-
-    //   </div>
-    // </div>
     <Grid container >
         <Grid item xs={1}>
           <div style={{backgroundColor: '#a4ffb6', height: '90vh'}}></div>
@@ -47,6 +37,16 @@ export default function Home () {
         <div style={{backgroundColor: '#a4ffb6', height: '90vh'}}>
           <DietSvg />
         </div>
+        </Grid>
+        <Grid item xs={12}>
+          <div className="home_footer">
+            <div className="home_links">
+              <a href="https://github.com/clarion22/EasyMeals"><GitHubIcon /></a>
+              <a href="https://linkedin.com/in/olga-thompson-35937515a"><LinkedInIcon /></a>
+              <a href=""><LanguageIcon /></a>
+            </div>
+            <div className="home_footer_name">© 2021 Olga Thompson</div>
+          </div>
         </Grid>
     </Grid>
   )

@@ -142,9 +142,8 @@ function CalorieForm({setTotalCals, setRecommendation}) {
           <hr></hr>
         <div className="row_container">
         <label>Input calories</label>
-        <input type='number' min="0" onChange={(e) => setTotalCal(Number(e.target.value))}></input>
+        <input type='number' min="0" onChange={(e) => setTotalCals(Number(e.target.value))}></input>
       </div>
-      <div>Total Cal {totalCal}</div>
       <div className='btn_wrapper'>
         <button type='submit' className="calorie_btn">Submit</button>
       </div>

@@ -17,3 +17,31 @@
   display: grid;
   background-color: red;
 }
+
+.home_links {
+ width: fit-content;
+ margin: auto;
+}
+
+.home_links a {
+  padding: 0 10px;
+}
+
+.home_links svg {
+  font-size: 45px;
+  color: black;
+}
+
+.home_links svg:hover {
+  color: gray;
+}
+
+.home_footer {
+  padding: 40px 0;
+}
+
+.home_footer_name {
+  width: fit-content;
+  margin: auto;
+  padding-top: 20px;
+}
