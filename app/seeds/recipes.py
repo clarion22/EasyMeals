@@ -209,6 +209,152 @@ def seed_recipes():
                     img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F7216831.jpg"
     )
 
+    recipe20 = Recipe(title="Berry White Ice Pops",
+                    food_group="Fruit",
+                    amount=1,
+                    unit="cups",
+                    calories=51,
+                    cook_time=10,
+                    flavor_type="American",
+                    food_category="Berries",
+                    img_link="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps159873_CW163682D02_23_2b-1.jpg?fit=696,1024"
+    )
+
+    recipe21 = Recipe(title="Strawberry Corn Salsa",
+                    food_group="Fruit",
+                    amount=1,
+                    unit="cups",
+                    calories=49,
+                    cook_time=10,
+                    flavor_type="American",
+                    food_category="Berries",
+                    img_link="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps140821_MC163887D03_10_8b.jpg?fit=696,1024"
+    )
+
+    recipe22 = Recipe(title="Berry White Ice Pops",
+                    food_group="Fruit",
+                    amount=1,
+                    unit="cups",
+                    calories=51,
+                    cook_time=10,
+                    flavor_type="American",
+                    food_category="Berries",
+                    img_link="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps159873_CW163682D02_23_2b-1.jpg?fit=696,1024"
+    )
+
+    recipe23 = Recipe(title="Super Lemon Ice Cream",
+                    food_group="Dairy",
+                    amount=1,
+                    unit="cups",
+                    calories=315,
+                    cook_time=20,
+                    flavor_type="American",
+                    food_category="Ice Cream",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1586127.jpg&w=596&h=399&c=sc&poi=face&q=85"
+    )
+
+    recipe24 = Recipe(title="Rose Ice Cream",
+                    food_group="Dairy",
+                    amount=1,
+                    unit="cups",
+                    calories=230,
+                    cook_time=10,
+                    flavor_type="American",
+                    food_category="Ice Cream",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F3440359.jpg&w=596&h=596&c=sc&poi=face&q=85"
+    )
+
+    recipe25 = Recipe(title="Roasted Broccoli and Cauliflower",
+                    food_group="Vegetables",
+                    amount=1,
+                    unit="cups",
+                    calories=68,
+                    cook_time=15,
+                    flavor_type="American",
+                    food_category="Broccoli",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5950250.jpg&w=596&h=596&c=sc&poi=face&q=85"
+    )
+    recipe26 = Recipe(title="Skillet-Braised Brussels Sprouts",
+                    food_group="Vegetables",
+                    amount=1,
+                    unit="cups",
+                    calories=128,
+                    cook_time=25,
+                    flavor_type="American",
+                    food_category="Brussels Sprouts",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F8351052.jpg&q=85"
+    )
+    recipe27 = Recipe(title="Shaved Brussels Sprouts with Bacon and Almonds",
+                    food_group="Vegetables",
+                    amount=1,
+                    unit="cups",
+                    calories=222,
+                    cook_time=10,
+                    flavor_type="American",
+                    food_category="Brussels Sprouts",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F7454128.jpg&q=85"
+    )
+    recipe28 = Recipe(title="Jasmine Rice",
+                    food_group="Carbs",
+                    amount=8,
+                    unit="oz",
+                    calories=325,
+                    cook_time=50,
+                    flavor_type="American",
+                    food_category="Rice",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1117118.jpg&w=596&h=399&c=sc&poi=face&q=85"
+    )
+    recipe29 = Recipe(title="Mango Ginger Rice",
+                    food_group="Carbs",
+                    amount=8,
+                    unit="oz",
+                    calories=256,
+                    cook_time=35,
+                    flavor_type="American",
+                    food_category="Rice",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5574248.jpg&w=596&h=596&c=sc&poi=face&q=85"
+    )
+    recipe30 = Recipe(title="Mushroom Rice",
+                    food_group="Carbs",
+                    amount=8,
+                    unit="oz",
+                    calories=216,
+                    cook_time=25,
+                    flavor_type="American",
+                    food_category="Rice",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F733477.jpg"
+    )
+    recipe31 = Recipe(title="Buttered Noodles",
+                    food_group="Carbs",
+                    amount=8,
+                    unit="oz",
+                    calories=294,
+                    cook_time=10,
+                    flavor_type="American",
+                    food_category="Noodles",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F2518260.jpg"
+    )
+    recipe32 = Recipe(title="Sriracha Noodles",
+                    food_group="Carbs",
+                    amount=8,
+                    unit="oz",
+                    calories=270,
+                    cook_time=20,
+                    flavor_type="Asian",
+                    food_category="Noodles",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1264985.jpg"
+    )
+    recipe33 = Recipe(title="Rice Noodles with Shiitakes, Choy, and Chiles",
+                    food_group="Carbs",
+                    amount=8,
+                    unit="oz",
+                    calories=486,
+                    cook_time=10,
+                    flavor_type="Asian",
+                    food_category="Noodles",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F702308.jpg"
+    )
+
 
 
     db.session.add(recipe1)
@@ -230,7 +376,21 @@ def seed_recipes():
     db.session.add(recipe17)
     db.session.add(recipe18)
     db.session.add(recipe19)
-    db.session.commit()
+    db.session.add(recipe20)
+    db.session.add(recipe21)
+    db.session.add(recipe22)
+    db.session.add(recipe23)
+    db.session.add(recipe24)
+    db.session.add(recipe25)
+    db.session.add(recipe26)
+    db.session.add(recipe27)
+    db.session.add(recipe28)
+    db.session.add(recipe29)
+    db.session.add(recipe30)
+    db.session.add(recipe31)
+    db.session.add(recipe32)
+    db.session.add(recipe33)
+    db.session.commit20
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
