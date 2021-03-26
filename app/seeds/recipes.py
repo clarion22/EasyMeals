@@ -231,15 +231,15 @@ def seed_recipes():
                     img_link="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps140821_MC163887D03_10_8b.jpg?fit=696,1024"
     )
 
-    recipe22 = Recipe(title="Berry White Ice Pops",
-                    food_group="Fruit",
-                    amount=1,
-                    unit="cups",
-                    calories=51,
-                    cook_time=10,
+    recipe22 = Recipe(title="Smokey Beef Brisket",
+                    food_group="Protein",
+                    amount=4,
+                    unit="oz",
+                    calories=231,
+                    cook_time=300,
                     flavor_type="American",
-                    food_category="Berries",
-                    img_link="https://www.tasteofhome.com/wp-content/uploads/2018/01/exps159873_CW163682D02_23_2b-1.jpg?fit=696,1024"
+                    food_category="Beef",
+                    img_link="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F3129028.jpg"
     )
 
     recipe23 = Recipe(title="Super Lemon Ice Cream",
@@ -390,7 +390,7 @@ def seed_recipes():
     db.session.add(recipe31)
     db.session.add(recipe32)
     db.session.add(recipe33)
-    db.session.commit20
+    db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
