@@ -20,10 +20,9 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/clarion22/EasyMeals && cd EasyMeals
+   git clone https://github.com/clarion22/EasyMeals
    ```
-2. Install NPM packages
-   ```sh
-   npm install
+2. Change directory 
    ```
-3. 
+   cd easymeals
+   ```
