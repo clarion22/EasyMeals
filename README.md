@@ -15,3 +15,15 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
 * [Flask](https://react-redux.js.org/)
 * [PostgreSQL](https://www.postgresql.org/)
 
+## Getting Started
+
+### Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/clarion22/EasyMeals && cd EasyMeals
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. 
