@@ -22,8 +22,8 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
    ```sh
    git clone https://github.com/clarion22/EasyMeals && cd EasyMeals
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. 
+3. 
