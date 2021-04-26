@@ -24,5 +24,9 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
    ```
 2. Change directory 
    ```
-   cd easymeals
+   cd EasyMeals
+   ```
+3. Install NPM packages
+   ```
+   npm install
    ```
