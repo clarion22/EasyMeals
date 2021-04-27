@@ -16,6 +16,15 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
 * [PostgreSQL](https://www.postgresql.org/)
 
 ## Getting Started
+### Prerequisites
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+  * pip 
+  ```sh
+  sudo apt install python3-pip
+  ```
 
 ### Installation
 1. Clone the repo
@@ -26,7 +35,7 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
    ```
    cd EasyMeals
    ```
-3. Install NPM packages
+3. Create an env file 
    ```
-   npm install
+   
    ```
