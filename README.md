@@ -26,7 +26,7 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
   ```sh
   npm install npm@latest -g
   ```
-  * pip 
+* pip 
   ```sh
   sudo apt install python3-pip
   ```
