@@ -42,5 +42,9 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups.
    ```
 3. Create an env file 
    ```
-   
+   touch .env
+   ```
+ 4. Change directory and Install Dependencies
+   ```
+   cd frontend && npm install 
    ```
