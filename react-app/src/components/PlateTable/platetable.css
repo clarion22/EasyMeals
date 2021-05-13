@@ -7,6 +7,6 @@
 	font-size: 18px;
 }
 
-.save_btn:hover {
+.save_btn_active:hover {
 	background-color: #fdce82;
 }

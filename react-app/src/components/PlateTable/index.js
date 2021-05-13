@@ -145,14 +145,16 @@ function PlateSelect() {
 			</TableContainer>
 			{fullPlate && sessionUser && !sessionUser.errors ? (
 				<button
-					className='save_btn'
+					className='save_btn save_btn_active'
 					onClick={savePlate}
 					disabled={buttonDisable}
 				>
 					Save your Plate
 				</button>
 			) : (
-				''
+				<button className='save_btn' disabled>
+					Select five recipes and login to save plate
+				</button>
 			)}
 		</>
 	);
