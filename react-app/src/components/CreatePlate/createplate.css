@@ -1,12 +1,32 @@
 .dot {
-  height: 400px;
-  width: 400px;
-  background-color: turquoise;
-  border-radius: 50%;
-  display: inline-block;
+	height: 400px;
+	width: 400px;
+	background-color: turquoise;
+	border-radius: 50%;
+	display: inline-block;
 }
 
 .circle {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
+}
+
+.reset_btn {
+	padding: 8px;
+	background-color: #f9a826;
+	color: white;
+	border: 1px solid rgba(184, 160, 27, 0.5);
+	font-family: 'Roboto';
+	font-size: 18px;
+	margin: 4% auto;
+	display: block;
+	width: 100%;
+}
+
+.reset_btn:focus {
+	outline: none;
+}
+
+.reset_btn:hover {
+	background-color: #fdce82;
 }
