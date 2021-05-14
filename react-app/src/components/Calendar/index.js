@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadUserEvents } from '../../store/calendar';
+import { loadUserEvents, deletePlateFromCalendar } from '../../store/calendar';
 
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -25,9 +25,11 @@ function Calendar() {
 	];
 	const [loaded, setLoaded] = useState(false);
 	const [open, setOpen] = useState(false);
+	const [selectedEvent, setSelectedEvent] = useState();
 	const handleClick = (e) => {
 		if (e.event.url) {
 			e.jsEvent.preventDefault();
+			setSelectedEvent(e.event._def.publicId);
 			handleClickOpen();
 		} else {
 			console.log('event', e);
@@ -43,6 +45,7 @@ function Calendar() {
 	};
 
 	const handleDeleteEvent = () => {
+		dispatch(deletePlateFromCalendar(parseInt(selectedEvent)));
 		setOpen(false);
 	};
 
@@ -88,7 +91,11 @@ function Calendar() {
 						<Button onClick={handleClose} color='primary'>
 							No
 						</Button>
-						<Button onClick={handleClose} color='primary' autoFocus>
+						<Button
+							onClick={handleDeleteEvent}
+							color='primary'
+							autoFocus
+						>
 							Yes
 						</Button>
 					</DialogActions>

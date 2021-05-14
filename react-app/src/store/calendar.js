@@ -54,8 +54,16 @@ export const loadUserEvents = (userId) => async (dispatch) => {
 	return plateEvents;
 };
 
-export const deletePlateFromCalendar = () => {
-	//
+export const deletePlateFromCalendar = (eventId) => async (dispatch) => {
+	const response = await fetch(`/api/plates/events/${eventId}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	});
+	const event = await response.json();
+	dispatch(deletePlateEvent(event));
+	return event;
 };
 
 const calendarReducer = (state = {}, action) => {
