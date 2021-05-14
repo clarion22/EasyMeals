@@ -66,3 +66,13 @@ def add_plate_event():
 def load_events(user_id):
     plateEvents = Calendar.query.filter_by(user_id=user_id).all()
     return {plateEvent.id : plateEvent.to_dict() for plateEvent in plateEvents}
+
+@plate_routes.route('/calendar/<int:plate_id>', methods=["DELETE"])
+def remove_plate_event():
+    event= Calendar.query.filter_by(plate_id=plate_id).first()
+    if event:
+        db.session.delete(event)
+        db.session.commit()
+        return event.to_dict()
+    else:
+        return {"error": "event not found"}
