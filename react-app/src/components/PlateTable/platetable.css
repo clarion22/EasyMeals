@@ -1,0 +1,12 @@
+.save_btn {
+	background-color: #f9a826;
+	color: white;
+	border: none;
+	font-family: 'Roboto';
+	padding: 4px;
+	font-size: 18px;
+}
+
+.save_btn_active:hover {
+	background-color: #fdce82;
+}
