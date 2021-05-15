@@ -1,11 +1,12 @@
 ## EasyMeals
 
-EasyMeals makes meal-prepping easy by creating plates based on food groups. 
+EasyMeals makes meal-prepping easy by creating plates based on food groups. Get recommended calories and daily food group suggestions with the nutrition calculator. Save favorite plates and add them to the calendar for convenient meal-prepping. 
 
 [Live Link](https://eazymeals.herokuapp.com)
 
 ## Demo
 ![Easy Meals](https://user-images.githubusercontent.com/66930118/114934464-e6daf100-9e07-11eb-9722-796f8148db6c.gif)
+
 ![demo3](https://user-images.githubusercontent.com/66930118/118341894-0476a580-b4ef-11eb-89fb-a79e2b639e08.gif)
 
 ## Built With
