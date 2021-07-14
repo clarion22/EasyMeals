@@ -18,7 +18,7 @@ import SavedPlates from './components/SavedPlates';
 import { createBrowserHistory } from 'history';
 
 import ReactGA from 'react-ga';
-ReactGA.initialize('G-YMYW39FNLG');
+ReactGA.initialize('UA-198016993-1');
 
 function App() {
 	const dispatch = useDispatch();
