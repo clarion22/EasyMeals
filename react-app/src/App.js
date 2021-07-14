@@ -15,6 +15,7 @@ import { authenticate } from './store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from './components/Calendar';
 import SavedPlates from './components/SavedPlates';
+import { createBrowserHistory } from 'history';
 
 import ReactGA from 'react-ga';
 
@@ -23,7 +24,10 @@ function App() {
 	const [authenticated, setAuthenticated] = useState(false);
 	const [loaded, setLoaded] = useState(false);
 	ReactGA.initialize('G-YMYW39FNLG');
-	ReactGA.pageview(window.location.pathname + window.location.search);
+	const browserHistory = createBrowserHistory();
+	browserHistory.listen((location, action) => {
+		ReactGA.pageview(location.pathname + location.search);
+	});
 
 	useEffect(() => {
 		(async () => {
@@ -34,6 +38,10 @@ function App() {
 			setLoaded(true);
 		})();
 	}, [dispatch]);
+
+	useEffect(() => {
+		ReactGA.pageview(window.location.pathname + window.location.search);
+	}, []);
 
 	if (!loaded) {
 		return null;
