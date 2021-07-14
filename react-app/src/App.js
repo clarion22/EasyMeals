@@ -18,12 +18,12 @@ import SavedPlates from './components/SavedPlates';
 import { createBrowserHistory } from 'history';
 
 import ReactGA from 'react-ga';
+ReactGA.initialize('G-YMYW39FNLG');
 
 function App() {
 	const dispatch = useDispatch();
 	const [authenticated, setAuthenticated] = useState(false);
 	const [loaded, setLoaded] = useState(false);
-	ReactGA.initialize('G-YMYW39FNLG');
 	const browserHistory = createBrowserHistory();
 	browserHistory.listen((location, action) => {
 		ReactGA.pageview(location.pathname + location.search);
