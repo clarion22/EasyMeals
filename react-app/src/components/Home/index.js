@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 import DietSvg from './Images/DietSvg';
+import GroceryImg from './Images/undraw_online_groceries.svg';
 import Grid from '@material-ui/core/Grid';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -21,8 +22,20 @@ const useStyles = makeStyles((theme) => ({
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column',
 		},
+		[theme.breakpoints.up('md')]: {},
+	},
+	extra: {
 		[theme.breakpoints.up('md')]: {
-			// flexWrap: 'nowrap',
+			backgroundColor: '#a4ffb6',
+			height: '90vh',
+		},
+	},
+	imageDiv: {
+		[theme.breakpoints.down('md')]: {
+			height: '60vh',
+			padding: '20px 0',
+			display: 'flex',
+			justifyContent: 'center',
 		},
 	},
 }));
@@ -32,11 +45,9 @@ export default function Home() {
 	return (
 		<Grid container className={classes.grid}>
 			<Grid item xs={0} md={2}>
-				<div
-					style={{ backgroundColor: '#a4ffb6', height: '90vh' }}
-				></div>
+				<div className={classes.extra}></div>
 			</Grid>
-			<Grid item xs={12} md={2}>
+			<Grid item xs={12} md={2} style={{ backgroundColor: '#a4ffb6' }}>
 				<div
 					style={{
 						backgroundColor: '#a4ffb6',
@@ -61,9 +72,11 @@ export default function Home() {
 					</div>
 				</div>
 			</Grid>
-			<Grid item xs={12} md={8}>
-				<div style={{ backgroundColor: '#a4ffb6', height: '50vh' }}>
-					<DietSvg />
+			<Grid item xs={12} md={8} style={{ backgroundColor: '#a4ffb6' }}>
+				<div style={{ backgroundColor: '#a4ffb6' }}>
+					<div className={classes.imageDiv}>
+						<img src={GroceryImg} style={{ height: '100%' }} />
+					</div>
 				</div>
 			</Grid>
 			<Grid item xs={12}>
