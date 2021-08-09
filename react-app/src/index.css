@@ -1,15 +1,18 @@
 /* TODO Add site wide styles */
-@import-normalize
-html, body, #root {
-  height: 100%;
+@import-normalize html, body, #root {
+	height: 100%;
 }
 
 html {
-  overflow: scroll;
-  overflow-x: hidden;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
+	width: 0;
+	background: transparent;
+}
+
+* {
+	box-sizing: border-box;
 }

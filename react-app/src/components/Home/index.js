@@ -31,11 +31,43 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	imageDiv: {
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('sm')]: {
 			height: '60vh',
 			padding: '20px 0',
 			display: 'flex',
 			justifyContent: 'center',
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: '0 20px',
+			height: '80vh',
+		},
+	},
+	textDiv: {
+		backgroundColor: '#a4ffb6',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		textAlign: 'center',
+		[theme.breakpoints.up('md')]: {
+			marginTop: '20%',
+			padding: '10px',
+		},
+	},
+	title: {
+		fontWeight: 'bold',
+		[theme.breakpoints.down('sm')]: {
+			fontSize: '2rem',
+		},
+		[theme.breakpoints.up('md')]: {
+			fontSize: '3vw',
+		},
+	},
+	subheading: {
+		[theme.breakpoints.down('sm')]: {
+			fontSize: '1rem',
+		},
+		[theme.breakpoints.up('md')]: {
+			fontSize: '2vw',
 		},
 	},
 }));
@@ -44,24 +76,13 @@ export default function Home() {
 	const classes = useStyles();
 	return (
 		<Grid container className={classes.grid}>
-			<Grid item xs={0} md={2}>
+			<Grid item xs={0} md={0}>
 				<div className={classes.extra}></div>
 			</Grid>
-			<Grid item xs={12} md={2} style={{ backgroundColor: '#a4ffb6' }}>
-				<div
-					style={{
-						backgroundColor: '#a4ffb6',
-						height: '40svh',
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'center',
-						textAlign: 'center',
-					}}
-				>
-					<span style={{ fontSize: '3vw', fontWeight: 'bold' }}>
-						Easy Meals
-					</span>
-					<span style={{ fontSize: '2vw' }}>
+			<Grid item xs={12} md={6} style={{ backgroundColor: '#a4ffb6' }}>
+				<div className={classes.textDiv}>
+					<span className={classes.title}>Easy Meals</span>
+					<span className={classes.subheading}>
 						Create nutritionally balanced meal plans to fit your
 						lifestyle and fitness needs.
 					</span>
@@ -72,7 +93,7 @@ export default function Home() {
 					</div>
 				</div>
 			</Grid>
-			<Grid item xs={12} md={8} style={{ backgroundColor: '#a4ffb6' }}>
+			<Grid item xs={12} md={6} style={{ backgroundColor: '#a4ffb6' }}>
 				<div style={{ backgroundColor: '#a4ffb6' }}>
 					<div className={classes.imageDiv}>
 						<img src={GroceryImg} style={{ height: '100%' }} />
