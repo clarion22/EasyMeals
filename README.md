@@ -61,9 +61,9 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups. Get 
    ```
  2. Install dependencies
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+    ```bash
+    pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+    ```
 
 3. Create a **.env** file based on the example with proper settings for your
    development environment
