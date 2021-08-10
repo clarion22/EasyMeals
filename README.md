@@ -56,9 +56,9 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups. Get 
    ```
  ### Installation Backend
  1. Change directory
-   ```
-   cd EasyMeals app
-   ```
+    ```
+    cd EasyMeals app
+    ```
  2. Install dependencies
 
     ```bash
