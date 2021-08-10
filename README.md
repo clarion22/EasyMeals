@@ -33,7 +33,7 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups. Get 
   sudo apt install python3-pip
   ```
 
-### Installation
+### Installation Frontend
 1. Clone the repo
    ```sh
    git clone https://github.com/clarion22/EasyMeals
@@ -49,6 +49,42 @@ EasyMeals makes meal-prepping easy by creating plates based on food groups. Get 
 4. Change directory and Install Dependencies
    ```
    cd react-app && npm install 
+   ```
+5. Start the development server
+   ```
+   npm start
+   ```
+ ### Installation Backend
+ 1. Change directory
+   ```
+   cd EasyMeals app
+   ```
+ 2. Install dependencies
+
+      ```bash
+      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+      ```
+
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+
+5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+
+   ```bash
+   pipenv shell
+   ```
+
+   ```bash
+   flask db upgrade
+   ```
+
+   ```bash
+   flask seed all
+   ```
+
+   ```bash
+   flask run
    ```
 ## Deploy to Heroku
 
