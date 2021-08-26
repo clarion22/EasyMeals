@@ -2,7 +2,10 @@
 @import-normalize html, body, #root {
 	height: 100%;
 }
-
+body {
+	position: fixed;
+	width: 100%;
+}
 html {
 	overflow: scroll;
 	overflow-x: hidden;
